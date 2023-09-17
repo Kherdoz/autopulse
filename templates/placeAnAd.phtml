@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="containerBody">
+    <header>
+        <div class="containerHeader">
+            <div class="logo">
+                <img src="./img/Logo-2.jpg" width="320px" height="100px" alt="logo">
+            </div>
+
+            <nav>
+                <a href="/" class="btn">
+                    <i class="fa-solid fa-home"></i>
+                    Accueil
+                </a>
+
+                <!-- MENU EN MODE CONNECTE -->
+                <?php if (isConnected()) : ?>
+                    <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Déconnexion
+                    </a>
+                <?php endif; ?>
+            </nav>
+
+            <!-- inclusion du template spécifique à la page affichée -->
+            <?php include '../templates/' . $template . '.phtml'; ?>
+
+   
+    <footer>
+        Footer
+    </footer>
+
+</body>
+
+</html>
