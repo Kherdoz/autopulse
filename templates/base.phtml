@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body class="containerBody">
+    <header>
+        <div class="containerHeader">
+            <div class="logo">
+                <img src="./img/Logo-2.jpg" width="320px" height="100px" alt="logo">
+            </div>
+
+            <nav>
+                <a href="/" class="btn">
+                    <i class="fa-solid fa-home"></i>
+                    Accueil
+                </a>
+
+                <!-- MENU EN MODE CONNECTE -->
+                <?php if (isConnected()) : ?>
+                    <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Déconnexion
+                    </a>
+                <?php else : ?>
+                    <!-- MENU EN MODE NON CONNECTE -->
+                    <a href="/signup" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Créer un compte
+                    </a>
+                    <a href="/login" class="btn btn-primary mx-1">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Connexion
+                    </a>
+                <?php endif; ?>
+            </nav>
+
+            <!-- inclusion du template spécifique à la page affichée -->
+            <?php include '../templates/' . $template . '.phtml'; ?>
+
+        </div>
+    </header>
+    <div class="cch">
+        <div class="container-carrousel">
+            <div>
+                <div class="content">
+                    <h2>Jane Doe</h2>
+                    <span>UI & UX Designer</span>
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Alex Smith</h2>
+                    <span>CEO Expert</span>
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Emily New</h2>
+                    <span>Web Designer</span>
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Lisa Boley</h2>
+                    <span>Marketing Coordinator</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="banner">
+
+        <p class="bb-1">
+            Les bonnes raisons de choisir Auto<strong>Pulse</strong>
+        </p>
+        <div class="bb-2">
+            <p>Confiance et Sécurité Assurées </p>
+            <!-- <br> -->
+            <img src="/img/lock_2913133.png" alt="Icône " class="svg" width="70" height="70">
+            <p class="box1">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
+                par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
+        </div>
+        <div class="bb-2">
+            <p>Facilité de Communication </p>
+            <!-- <br> -->
+            <img src="/img/speak.png" alt="Icône" width="70" height="70">
+            <p class="box1">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
+                entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
+        </div>
+        <div class="bb-2">
+            <p>Évaluation Transparente</p>
+            <!-- <br> -->
+            <img src="/img/rating.png" alt="Icône" width="70" height="70">
+            <p class="box1">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
+                renforçant ainsi la confiance dans chaque transaction.</p>
+        </div>
+    </section>
+    <section class="containerButton">
+
+        <div class="btn1">
+            <button class="button-28">ACHETER</button>
+            <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
+        </div>
+        <div class="btn1">
+            <button class="button-28">VENDRE</button>
+            <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+        </div>
+    </section>
+    <footer>
+        Footer
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fonction pour ouvrir la fenêtre modale
+            function ouvrirModal(modalId) {
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "block";
+                }
+            }
+
+            // Fonction pour fermer la fenêtre modale
+            function fermerModal(modalId) {
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Écouter le clic sur la croix pour fermer la fenêtre modale de connexion
+            var closeLoginBtn = document.getElementById("closeLoginBtn");
+            if (closeLoginBtn) {
+                closeLoginBtn.addEventListener("click", function () {
+                    fermerModal("loginModal");
+                    fermerModal("signupModal"); // Fermer également la fenêtre modale de création de compte
+                });
+            }
+
+            // Écouter le clic sur la croix pour fermer la fenêtre modale de création de compte
+            var closeSignupBtn = document.getElementById("closeSignupBtn");
+            if (closeSignupBtn) {
+                closeSignupBtn.addEventListener("click", function () {
+                    fermerModal("signupModal");
+                    fermerModal("loginModal"); // Fermer également la fenêtre modale de connexion
+                });
+            }
+
+            // Écouter le clic sur le bouton pour ouvrir la fenêtre modale de création de compte
+            var openSignupBtn = document.getElementById("openSignupBtn");
+            if (openSignupBtn) {
+                openSignupBtn.addEventListener("click", function () {
+                    ouvrirModal("signupModal");
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
