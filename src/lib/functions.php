@@ -109,6 +109,6 @@ function registerUser(int $userId, string $email, string $firstname, string $las
 function isConnected(): bool
 {
     initSession();
-
+    
     return array_key_exists('user', $_SESSION) && isset($_SESSION['user']);
 }
