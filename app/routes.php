@@ -33,6 +33,7 @@ $routes = [
         'path' => '/logout',
         'controller' => 'logout.php'
     ],
+    // ajouter une annonce
 ];
 
 return $routes;

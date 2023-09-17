@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body class="containerBody">
@@ -117,51 +117,6 @@
     <footer>
         Footer
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Fonction pour ouvrir la fenêtre modale
-            function ouvrirModal(modalId) {
-                var modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = "block";
-                }
-            }
-
-            // Fonction pour fermer la fenêtre modale
-            function fermerModal(modalId) {
-                var modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-            // Écouter le clic sur la croix pour fermer la fenêtre modale de connexion
-            var closeLoginBtn = document.getElementById("closeLoginBtn");
-            if (closeLoginBtn) {
-                closeLoginBtn.addEventListener("click", function () {
-                    fermerModal("loginModal");
-                    fermerModal("signupModal"); // Fermer également la fenêtre modale de création de compte
-                });
-            }
-
-            // Écouter le clic sur la croix pour fermer la fenêtre modale de création de compte
-            var closeSignupBtn = document.getElementById("closeSignupBtn");
-            if (closeSignupBtn) {
-                closeSignupBtn.addEventListener("click", function () {
-                    fermerModal("signupModal");
-                    fermerModal("loginModal"); // Fermer également la fenêtre modale de connexion
-                });
-            }
-
-            // Écouter le clic sur le bouton pour ouvrir la fenêtre modale de création de compte
-            var openSignupBtn = document.getElementById("openSignupBtn");
-            if (openSignupBtn) {
-                openSignupBtn.addEventListener("click", function () {
-                    ouvrirModal("signupModal");
-                });
-            }
-        });
-    </script>
 
 </body>
 
