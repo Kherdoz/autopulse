@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>autoPulse</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="js/main.js" defer></script>
@@ -14,9 +14,9 @@
 <body class="containerBody">
     <header>
         <div class="containerHeader">
-            <div class="logo">
+            <a href="/" class="logo">
                 <img src="./img/Logo-2.jpg" width="320px" height="100px" alt="logo">
-            </div>
+            </a>
 
             <nav>
                 <a href="/" class="btn">
@@ -28,10 +28,13 @@
                 <?php if (isConnected()) : ?>
 
                     <a href="/placeAnAd" class="btn btn-primary mx-1" onclick="ouvrirModal()">
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i class="fa-solid fa-user-plus"></i>
                         vendeur
                     </a>
-
+                    <a href="/" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-user-plus"></i>
+                        acheteur
+                    </a>
                     <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion
