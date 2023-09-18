@@ -26,6 +26,12 @@
 
                 <!-- MENU EN MODE CONNECTE -->
                 <?php if (isConnected()) : ?>
+
+                    <a href="/placeAnAd" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        vendeur
+                    </a>
+
                     <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion

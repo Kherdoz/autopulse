@@ -80,5 +80,5 @@ if (!empty($_POST)) {
 }
 
 // Affichage : inclusion du template
-$template = 'placeAnAd.phtml'; // Remplacez "create_car_ad" par le nom du template approprié
-include '../templates/placeAnAd.phtml'; // Assurez-vous d'inclure le template correct
+$template = 'placeAnAd.phtml'; 
+include '../templates/placeAnAd.phtml';
