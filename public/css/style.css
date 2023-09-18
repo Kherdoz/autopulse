@@ -326,3 +326,20 @@ footer{
         .hidden{
           display: none;
         }
+
+/* User Story (vendeur) */
+.bloc{
+  display: flex;
+  flex-direction: row;
+}
+.containerV{
+  background-color: #1e0e3e;
+  width: 400px;
+  height: 900px;
+  border: solid 1px black;
+}
+.cv{
+  width: 1550px;
+  height: 900px;
+  background-color: #b0b0b0;
+}

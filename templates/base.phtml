@@ -19,28 +19,35 @@
             </a>
 
             <nav>
-                <a href="/" class="btn">
+                <!-- <a href="/" class="btn">
                     <i class="fa-solid fa-home"></i>
                     Accueil
-                </a>
+                </a> -->
 
                 <!-- MENU EN MODE CONNECTE -->
                 <?php if (isConnected()) : ?>
-
-                    <a href="/placeAnAd" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                    <!-- <a href="/" class="btn">
+                    <i class="fa-solid fa-home"></i>
+                    Accueil
+                </a> -->
+                    <!-- <a href="/placeAnAd" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-user-plus"></i>
                         vendeur
                     </a>
                     <a href="/" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-user-plus"></i>
                         acheteur
-                    </a>
+                    </a> -->
                     <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion
                     </a>
                 <?php else : ?>
                     <!-- MENU EN MODE NON CONNECTE -->
+                    <a href="/" class="btn">
+                    <i class="fa-solid fa-home"></i>
+                    Accueil
+                </a>
                     <a href="/signup" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-user-plus"></i>
                         Créer un compte
@@ -113,15 +120,25 @@
         </div>
     </section>
     <section class="containerButton">
-
-        <div class="btn1">
-            <button class="button-28">ACHETER</button>
-            <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
-        </div>
-        <div class="btn1">
-            <button class="button-28">VENDRE</button>
-            <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
-        </div>
+        <?php if (isConnected()) : ?>
+            <div class="btn1">
+                <button class="button-28" onclick="window.location.href='/'; ouvrirModal()">ACHETER</button>
+                <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
+            </div>
+            <div class="btn1">
+                <button class="button-28" onclick="window.location.href='/placeAnAd'">VENDRE</button>
+                <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+            </div>
+        <?php else : ?>
+            <div class="btn1">
+                <button class="button-28">ACHETER</button>
+                <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
+            </div>
+            <div class="btn1">
+                <button class="button-28">VENDRE</button>
+                <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+            </div>
+        <?php endif; ?>
     </section>
     <footer>
         Footer
