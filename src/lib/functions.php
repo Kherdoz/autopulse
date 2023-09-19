@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Démarre la session si la session n'est pas déjà démarrée
@@ -49,7 +49,7 @@ function fetchFlash(): ?string
 
     // Récupération du message flash s'il existe
     if (hasFlash()) {
-        
+
         // On récupère le message flash dans une variable
         $flashMessage = $_SESSION['flashbag'];
 
@@ -109,6 +109,24 @@ function registerUser(int $userId, string $email, string $firstname, string $las
 function isConnected(): bool
 {
     initSession();
-    
+
     return array_key_exists('user', $_SESSION) && isset($_SESSION['user']);
+}
+
+function buildUrl(string $routeName, array $params = []) : string
+{
+    global $routes;
+
+    if (isset($routes[$routeName])) {
+        $path = $routes[$routeName]['path'];
+        $baseUrl = rtrim(BASE_URL, '/');
+
+        if (!empty($params)) {
+            $path .= '?' . http_build_query($params);
+        }
+
+        return $baseUrl . $path;
+    } else {
+        throw new Exception("Route introuvable : $routeName", 404);
+    }
 }

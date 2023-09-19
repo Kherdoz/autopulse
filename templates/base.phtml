@@ -38,21 +38,22 @@
                         <i class="fa-solid fa-user-plus"></i>
                         acheteur
                     </a> -->
-                    <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                    <a href="<?= buildUrl('login'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion
                     </a>
                 <?php else : ?>
                     <!-- MENU EN MODE NON CONNECTE -->
                     <a href="/" class="btn">
-                    <i class="fa-solid fa-home"></i>
-                    Accueil
-                </a>
-                    <a href="/signup" class="btn btn-primary mx-1" onclick="ouvrirModal()">
+                        <i class="fa-solid fa-home"></i>
+                        Accueil
+                    </a>
+                    <a href="<?= buildUrl('signup'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-user-plus"></i>
                         Créer un compte
                     </a>
-                    <a href="/login" class="btn btn-primary mx-1">
+
+                    <a href="<?= buildUrl('login'); ?>" class=" btn btn-primary mx-1">
                         <i class="fa-solid fa-right-to-bracket"></i>
                         Connexion
                     </a>

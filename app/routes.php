@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * On définit dans le tableau associatif $routes lal iste de nos routes.
+ * On définit dans le tableau associatif $routes la liste de nos routes.
  * Pour chaque route, on définit : 
  * - son nom 
  * - path (qui apparaît dans l'URL)

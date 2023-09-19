@@ -45,5 +45,3 @@ class Database {
     }
 
 }
-
-// Ici je suis à l'extérieur de la classe

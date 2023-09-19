@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,25 +26,39 @@
                 </a>
 
                 <!-- MENU EN MODE CONNECTE -->
-                <?php if (isConnected()) : ?>
+                <!-- <?php if (isConnected()) : ?>
                     <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion
                     </a>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </nav>
 
             <!-- inclusion du template spécifique à la page affichée
             <?php include '../templates/' . $template . '.phtml'; ?> -->
-                </header>
-                <div  class="bloc">
-   <section class="containerV">
-ahahhahaha
-   </section>
-   <aside class="cv">
-ahahahahahha
-   </aside>
-   </div>
+    </header>
+    <div class="bloc">
+        <section class="containerV">
+            <div class="">
+                <div>
+                    <p>Vendez votre vehicule</p>
+                </div>
+                <div>
+                    <p>Profils</p>
+                    <a href="/">Infos</a>
+                    <a href="/logout">Deconnexion</a>
+                </div>
+                <div>
+                    <p>Profils</p>
+                    <a href="/">Infos</a>
+                    <a href="/logout">Deconnexion</a>
+                </div>
+            </div>
+        </section>
+        <aside class="cv">
+            ahahahahahha
+        </aside>
+    </div>
     <footer>
         Footer
     </footer>
