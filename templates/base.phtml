@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>autoPulse</title>
-    <link href="<?= asset('css/style.css') ?>" >
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet "href="<?= asset('css/styles.css') ?>">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <script src="js/main.js" defer></script>
+    <script src="<?= asset('js/main.js') ?>" defer></script>
 </head>
 
 <body class="containerBody">
     <header>
         <div class="containerHeader">
             <a href="/" class="logo">
-                <img src="./img/Logo-2.jpg" width="320px" height="100px" alt="logo">
+                <img src="<?= asset('./img/Logo-2.jpg') ?>" width="320px" height="100px" alt="logo">
             </a>
 
             <nav>
@@ -123,7 +123,6 @@
     </section>
     <section class="containerButton">
         <?php if (isConnected()) : ?>
-  
             <div class="btn1">
                 <button class="button-28" onclick="window.location.href='/'; ouvrirModal()">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
