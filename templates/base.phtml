@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>autoPulse</title>
+    <link href="<?= asset('css/style.css') ?>" >
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="js/main.js" defer></script>
@@ -38,7 +39,7 @@
                         <i class="fa-solid fa-user-plus"></i>
                         acheteur
                     </a> -->
-                    <a href="<?= buildUrl('login'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
+                    <a href="<?= buildUrl('logout'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Déconnexion
                     </a>
@@ -122,12 +123,13 @@
     </section>
     <section class="containerButton">
         <?php if (isConnected()) : ?>
+  
             <div class="btn1">
                 <button class="button-28" onclick="window.location.href='/'; ouvrirModal()">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
             </div>
             <div class="btn1">
-                <button class="button-28" onclick="window.location.href='/placeAnAd'">VENDRE</button>
+            <button class="button-28" onclick="window.location.href='<?= buildUrl('placeAnAd'); ?>'">VENDRE</button>
                 <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
             </div>
         <?php else : ?>

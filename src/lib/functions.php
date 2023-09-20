@@ -113,20 +113,31 @@ function isConnected(): bool
     return array_key_exists('user', $_SESSION) && isset($_SESSION['user']);
 }
 
-function buildUrl(string $routeName, array $params = []) : string
+function buildUrl(string $routeName, array $params = []): string
 {
     global $routes;
-
+    // Définissez BASE_URL ici, par exemple :
+    $baseUrl = 'http://localhost:8000/index.php/'; // Remplacez par votre URL de base réelle
     if (isset($routes[$routeName])) {
         $path = $routes[$routeName]['path'];
-        $baseUrl = rtrim(BASE_URL, '/');
 
         if (!empty($params)) {
             $path .= '?' . http_build_query($params);
         }
 
-        return $baseUrl . $path;
+        // Concaténez BASE_URL avec le chemin de la ressource en paramètre
+        $url = rtrim($baseUrl, '/') . '/' . ltrim($path, '/');
+
+        return $url;
     } else {
         throw new Exception("Route introuvable : $routeName", 404);
     }
+}
+function asset(string $resourcePath): string
+{
+    // Utilisez la constante BASE_URL pour construire l'URL complet
+    $url = rtrim(BASE_URL, '/') . '/' . ltrim($resourcePath, '/');
+
+    // Retournez l'URL construite
+    return $url;
 }
