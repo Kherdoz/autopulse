@@ -343,3 +343,38 @@ footer{
   height: 900px;
   background-color: #b0b0b0;
 }
+.position{
+display: flex;
+flex-direction: column;
+
+justify-content: center;
+gap: 60px;
+}
+.boxPlace{
+   display: flex;
+  justify-content: center; 
+/* align-items: center;    */
+  display: flex;
+  flex-direction: column;
+ gap: 20px;
+ text-decoration: none;
+}
+.onglet{
+ 
+    display: flex;
+    justify-content: center; 
+align-items: center;  
+  width: 200px;
+  height: 30px;
+  color: #ffffff;
+  background-color: #202C39;
+  border-radius: 0px 40px 40px 0px;
+}
+.boxPl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 20px;
+  color: #ffffff;
+  font-size: 1.6rem;
+}

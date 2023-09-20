@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -7,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet "href="<?= asset('css/styles.css') ?>">
+    <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="<?= asset('js/main.js') ?>" defer></script>
 </head>
@@ -39,20 +38,36 @@
     </header>
     <div class="bloc">
         <section class="containerV">
-            <div class="">
-                <div>
+            <div class="position">
+                <div class="boxPl">
                     <p>Vendez votre vehicule</p>
                 </div>
-                <div>
-                    <p>Profils</p>
+                <div class="boxPlace">
+                    <p class="onglet">Profils</p>
                     <a href="/">Infos</a>
                     <a href="/logout">Deconnexion</a>
                 </div>
-                <div>
-                    <p>Profils</p>
-                    <a href="/">Infos</a>
-                    <a href="/logout">Deconnexion</a>
+                <div class="boxPlace">
+                    <p class="onglet">Messagerie</p>
+                    <a href="/">Nouveaux messages</a>
+
                 </div>
+                <div class="boxPlace">
+
+                    <p class="onglet">Documents à fournir</p>
+                    <label for="file">Controle Technique :</label>
+                    <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
+                    <input type="submit" value="Envoyer">
+                </div>
+                <div class="boxPlace">
+
+                    <label for="file">Carte grise :</label>
+                    <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
+                    <input type="submit" value="Envoyer">
+
+                </div>
+
+
             </div>
         </section>
         <aside class="cv">
