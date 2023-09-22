@@ -1,39 +1,49 @@
-
-function onClickCloseModalButton(event){
-    const modal= event.currentTarget.closest(".modal-container");
-    modal.classList.add("hidden");
+function onClickCloseModalButton(event) {
+  const modal = event.currentTarget.closest(".modal-container");
+  modal.classList.add("hidden");
 }
 
 const closeModalsButtons = document.querySelectorAll(".modal-container .close");
-for(const closeModalButton of closeModalsButtons ){
-    closeModalButton.addEventListener("click", onClickCloseModalButton)
+for (const closeModalButton of closeModalsButtons) {
+  closeModalButton.addEventListener("click", onClickCloseModalButton);
 }
 
+function afficherPhoto() {
+  const input = document.getElementById("photo");
+  const imageCarousel = document.getElementById("image-carousel");
 
-;( function ( document, window, index )
-{
-	var inputs = document.querySelectorAll( '.inputfile' );
-	Array.prototype.forEach.call( inputs, function( input )
-	{
-		var label	 = input.nextElementSibling,
-			labelVal = label.innerHTML;
+  // Vérifier s'il y a des fichiers sélectionnés
+  if (input.files && input.files.length > 0) {
+    // Limiter à 4 photos
+    if (imageCarousel.children.length >= 4) {
+      alert("Vous ne pouvez télécharger que 4 photos maximum.");
+      return;
+    }
 
-		input.addEventListener( 'change', function( e )
-		{
-			var fileName = '';
-			if( this.files && this.files.length > 1 )
-				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-			else
-				fileName = e.target.value.split( '\\' ).pop();
+    for (let i = 0; i < input.files.length; i++) {
+      const file = input.files[i];
+      const imageContainer = document.createElement("div");
+      imageContainer.classList.add("image-container");
+      const image = document.createElement("img");
+      image.src = URL.createObjectURL(file);
+      image.style.borderRadius = "10px"; // Appliquer un border-radius de 10px
+      imageContainer.appendChild(image);
 
-			if( fileName )
-				label.querySelector( 'span' ).innerHTML = fileName;
-			else
-				label.innerHTML = labelVal;
-		});
+      // Bouton pour retirer l'image
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Retirer";
+      removeButton.classList.add("remove-button");
+      removeButton.addEventListener("click", () => {
+        imageContainer.remove();
+      });
+      imageContainer.appendChild(removeButton);
 
-		// Firefox bug fix
-		input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
-		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
-	});
-}( document, window, 0 ));
+      imageCarousel.appendChild(imageContainer);
+    }
+
+    // Effacer le champ d'entrée après avoir ajouté les images
+    input.value = "";
+  }
+}
+document.querySelector("input[type=number]")
+.oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))

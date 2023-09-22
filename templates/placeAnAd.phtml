@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="<?= asset('js/main.js') ?>" defer></script>
 </head>
@@ -43,43 +45,98 @@
                     <p>Vendez votre vehicule</p>
                 </div>
                 <div class="boxPlace">
-                    <p class="onglet">Profils</p>
-                    <a href="/">Infos</a>
-                    <a href="/logout">Deconnexion</a>
+                    <p class="ongletP">Profils</p>
+                    <div class="ml">
+                        <a href="/" class="textN">Infos</a>
+                        <a href="/logout">Deconnexion</a>
+                    </div>
                 </div>
                 <div class="boxPlace">
                     <p class="onglet">Messagerie</p>
-                    <a href="/">Nouveaux messages</a>
+                    <a href="/" class="ml">Nouveaux messages</a>
 
                 </div>
                 <div class="boxPlace">
 
                     <p class="onglet">Documents à fournir</p>
-                    <div class="">
-                        <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-                        <label for="file-5" style="color: #ff0000"; font-size: 24px;"> <!-- Remplacez les valeurs par celles de votre choix -->
-                            <figure><img src="/img/download.svg" alt="" style="width: 40px; height: 40px;"> <!-- Remplacez les valeurs par celles de votre choix -->
-                            </figure> <span>carte grise&hellip;</span>
-                        </label>
-                    </div>
-                    <!-- <label for="file">Controle Technique :</label>
+
+                    <p class="textPlacA">Controle Technique :</p>
                     <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
                     <input type="submit" value="Envoyer">
                 </div>
                 <div class="boxPlace">
 
-                    <label for="file">Carte grise :</label>
+                    <p class="textPlacA">Carte grise :</p>
                     <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
                     <input type="submit" value="Envoyer">
 
-                </div> -->
-
-
                 </div>
-        </section>
 
+
+            </div>
+        </section>
         <aside class="cv">
-            ahahahahahha
+            <div class="blocT">
+                <img src="<?= asset('/img/checklist.png') ?>" width="150px" height="150px" alt="logo">
+                <p class="flxT">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+            </div>
+            <div class="blocAnAd">
+                <div class="containerP">
+
+                    <form class="formPaD" enctype="multipart/form-data" method="post" action="/.php">
+                        <!-- Input pour la photo -->
+                        <div class="flexPlaceAnAd">
+                            <div class="flexPad">
+                                <label for="photo">Photo :</label>
+                                <input type="file" id="photo" name="photo" accept="image/*" onchange="afficherPhoto()" required>
+                            </div>
+
+                            <!-- Sélecteur pour le type de carburant -->
+                            <div class="flexPad">
+                                <label for="carburant">Carburant :</label>
+                                <select id="carburant" name="carburant" required>
+                                    <option value="essence">Essence</option>
+                                    <option value="diesel">Diesel</option>
+                                    <option value="diesel">Hybride</option>
+                                    <option value="electrique">Électrique</option>
+                                </select>
+
+                            </div>
+
+                            <!-- Champ pour l'année -->
+                            <div class="flexPad">
+                                <label for="annee">Année :</label>
+                                <input type="number" class="year" name="annee" min="1990" max="2100"required>
+                            </div>
+
+                            <!-- Champ pour le nombre de pièces -->
+                            <div class="flexPad">
+                                <label for="pieces">Nombre de pièces :</label>
+                                <input type="text" class="vehicleCondition" name="pieces" required>
+                            </div>
+
+                            <!-- Champ pour le prix -->
+                            <div class="flexPad">
+                                <label for="prix">Prix :</label>
+                                <input type="text" class="price" name="prix" required>
+                            </div>
+
+                            <!-- Champ pour la description -->
+                            <div class="flexPad">
+                                <label for="description">Description :</label>
+                                <textarea name="ameliorer" id="ameliorer" rows="10" cols="40">
+                </textarea>
+                            </div>
+
+                            <!-- Bouton de soumission -->
+                            <input type="submit" value="Envoyer">
+                        </div>
+                    </form>
+
+                    <!-- Carrousel pour afficher les photos (limité à 4) -->
+                </div>
+                <div id="image-carousel"></div>
+
         </aside>
     </div>
     <footer>

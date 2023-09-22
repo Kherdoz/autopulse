@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Inclusive Sans', sans-serif;
 }
 
 .cch {
@@ -29,35 +30,52 @@ nav a{
    padding: 10px;
    margin: 10px;
 }
-.banner{
-    margin-top: 40px;
+.containerBase{
+  margin-top: 100px;
     display: flex;
-flex-wrap: wrap;
-/* flex-direction: column; */
-    height: 200px;
+    height: 400px;
     width: auto;
-   background-color: #1e0e3e;
+    background-color: rgb(13, 59, 102);
+  
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
 }
-.bb-1{
+.pulse{
+  color: #F29559;
+}
+.bannerBase1{
+  font-size: 2rem;
 
-    /* height: 20px; */
-    flex:1 2 1900px;
-    margin-top: 2;
-     flex-grow: 1;
      text-align: center;
    color:white;
 }
-.bb-2{
+.bannerBase2{
+  font-size: 1.3rem;
+
     /* flex-direction: row; */
     flex: 1 1 300px;
-    width: 50px;
+   
     text-align: center;
     color:#fff;
  
 }
-.strong{
-    color:#F29559;
+h1{
+margin: 20px;
+color: rgb(13, 59, 102);  
 }
+h2{
+  color: rgb(13, 59, 102);  
+}
+.containerBaseBanner{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
 .box1{
 margin-left: 50px;
 margin-top: 10px;
@@ -71,14 +89,15 @@ margin-top: 10px;
 .containerButton{
     margin-top: 60px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    
- gap: 150px;
+ gap: 15px;
     height: 200px;
     
 }
 .textb{
     margin-top: 30px;
+    font-size: 1.3rem;
     
 }
 .btn1{
@@ -93,7 +112,7 @@ margin-top: 10px;
 footer{
     margin-top: auto;
     height: 100px;
-    background-color: #1e0e3e;
+    background-color: rgb(13, 59, 102);
 }
 
 /* style bouton */
@@ -136,7 +155,7 @@ footer{
 /* Carrousel */
 
 .container-carrousel {
-    margin-top: 90px;
+    margin-top: 55px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -144,11 +163,11 @@ footer{
     gap: 10px;
   
     > div {
-      flex: 0 0 120px;
+      flex: 0 0 193px;
       border-radius: 0.5rem;
       transition: 0.5s ease-in-out;
       cursor: pointer;
-      box-shadow: 1px 5px 15px #1e0e3e;
+      box-shadow: 1px 5px 15px rgb(13, 59, 102);
       position: relative;
       overflow: hidden;
   
@@ -179,7 +198,7 @@ footer{
         flex-direction: column;
         height: 100%;
         justify-content: flex-end;
-        background: rgb(2, 2, 46);
+        background: rgb(13, 59, 102);
         background: linear-gradient(
           0deg,
           rgba(2, 2, 46, 0.6755077030812324) 0%,
@@ -198,7 +217,7 @@ footer{
   
       &:hover {
         flex: 0 0 250px;
-        box-shadow: 1px 3px 15px #7645d8;
+        box-shadow: 1px 3px 15px rgb(13, 59, 102);
         transform: translatey(-30px);
       }
   
@@ -255,8 +274,7 @@ footer{
     box-shadow: none;
     transform: translateY(0);
   }
-  
-        /* Styles pour la fenêtre contextuelle */
+ /* Styles pour la fenêtre contextuelle */
         .modal-container {
             display: flex;
             justify-content: center;
@@ -270,7 +288,7 @@ footer{
             z-index: 999;
         }
         
-        .modal-content {
+.modal-content {
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
@@ -278,12 +296,12 @@ footer{
             width: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-        .close {
+ .close {
             float: right;
             cursor: pointer;
         }
 
-        /* Styles pour le formulaire */
+ /* Styles pour le formulaire */
         form {
             text-align: center;
         }
@@ -302,15 +320,14 @@ footer{
             font-weight: bold;
         }
 
-        form input[type="text"],
-        form input[type="password"] {
+       .form_control {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
-        form input[type="submit"] {
+       .submitSignup{
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -319,7 +336,7 @@ footer{
             cursor: pointer;
         }
 
-        form input[type="submit"]:hover {
+        .submitSignup:hover {
             background-color: #0056b3;
         }
         /*  */
@@ -333,15 +350,20 @@ footer{
   flex-direction: row;
 }
 .containerV{
-  background-color: #1e0e3e;
+  background-color: rgb(13, 59, 102);
   width: 400px;
   height: 900px;
-  border: solid 1px black;
+
 }
 .cv{
+  display: flex;
+ flex-direction: column;
+ flex-wrap: nowrap;
+ align-items: center;
+ justify-content: flex-start;
   width: 1550px;
   height: 900px;
-  background-color: #b0b0b0;
+
 }
 .position{
 display: flex;
@@ -360,15 +382,26 @@ gap: 60px;
  text-decoration: none;
 }
 .onglet{
- 
+
     display: flex;
     justify-content: center; 
 align-items: center;  
   width: 200px;
   height: 30px;
   color: #ffffff;
-  background-color: #202C39;
+  background-color: rgb(238, 150, 75);
   border-radius: 0px 40px 40px 0px;
+}
+.ongletP{
+
+  display: flex;
+  justify-content: center; 
+align-items: center;  
+width: 200px;
+height: 30px;
+color: #ffffff;
+background-color: rgb(238, 150, 75);
+border-radius: 0px 40px 40px 0px;
 }
 .boxPl{
   display: flex;
@@ -378,80 +411,132 @@ align-items: center;
   color: #ffffff;
   font-size: 1.6rem;
 }
+.ml{
 
-.inputfile-4 + label {
-  color: #d3394c;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 20px;
+
 }
 
-.inputfile-4:focus + label,
-.inputfile-4.has-focus + label,
-.inputfile-4 + label:hover {
-  color: #722040;
+a {
+  text-decoration: none;
+  color:#ffffff;
+  font-size: 1.1rem;
+}
+.blocT{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.flxT{
+  display: flex;
+  justify-content: center;
+align-items: center;
+font-size: 1.1rem;
+border-bottom: solid 5px rgb(238, 150, 75);
+}
+.textPlacA{
+  color: white
 }
 
-.inputfile-4 + label figure {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #d3394c;
-  display: block;
+.blocAnAd{
+  display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: flex-start ;
+ align-items: flex-start;
+  margin-top: 50px;
+  width: 1252px;
+  height: 600px;
+
+  /* border: solid 1px black; */
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
   padding: 20px;
-  margin: 0 auto 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
 }
 
-.inputfile-4:focus + label figure,
-.inputfile-4.has-focus + label figure,
-.inputfile-4 + label:hover figure {
-  background-color: #722040;
+.formPaD {
+  height: 500px;
+  width: 750px;
+ padding: 32px;
+  display: flex; /* Afficher les éléments en ligne */
+  flex-direction: column; 
+flex-wrap:wrap;
+align-content: flex-start;
+align-items: flex-start;
+  /* justify-content: center; */
+ 
+  text-align: left;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  
+}
+.flexPad{
+  width: 300px;
+  padding: 20px;
+}
+.flexPlaceAnAd{
+  /* border: solid; */
+  width: 608px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 432px;
+  align-content: flex-start;
+  justify-content: space-evenly;
 }
 
-.inputfile-4 + label svg {
-  width: 100%;
-  height: 100%;
-  fill: #f1e5e6;
+/* Style pour le carrousel */
+#image-carousel {
+  width: 200px;
+  gap: 10px;
+  flex: 1; /* Occupe l'espace restant */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;   
+.image-container {
+  
+  position: relative;
+  border-radius: 10px;
   overflow: hidden;
+  
+}
+.image-container img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+}
+.remove-button {
   position: absolute;
-  z-index: -1;
-}
-
-.inputfile + label {
-  max-width: 80%;
-  font-size: 1.25rem;
-  /* 20px */
-  font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  padding: 0.625rem 1.25rem;
-  /* 10px 20px */
 }
-
-.no-js .inputfile + label {
-  display: none;
-}
-
-.inputfile:focus + label,
-.inputfile.has-focus + label {
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
-}
-
-
-
-.inputfile + label svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  fill: currentColor;
-  margin-top: -0.25em;
-  /* 4px */
-  margin-right: 0.25em;
-  /* 4px */
+.remove-button:hover {
+  background-color: rgba(255, 0, 0, 1);
 }

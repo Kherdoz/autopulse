@@ -38,6 +38,7 @@ $routes = [
         'path' => '/placeAnAd',
         'controller' => 'placeAnAd.php'
     ],
+    
     'css' => [
         'path' => 'css/style.css'],
 ];

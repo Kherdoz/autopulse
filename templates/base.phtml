@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>autoPulse</title>
-    <link rel="stylesheet "href="<?= asset('css/styles.css') ?>">
+    <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="<?= asset('js/main.js') ?>" defer></script>
@@ -66,6 +69,7 @@
 
         </div>
     </header>
+    <h1>La voiture parfaite, à portée de main, entre particuliers.</h1>
     <div class="cch">
         <div class="container-carrousel">
             <div>
@@ -94,47 +98,50 @@
             </div>
         </div>
     </div>
-    <section class="banner">
-
-        <p class="bb-1">
-            Les bonnes raisons de choisir Auto<strong>Pulse</strong>
+    <section class="containerBase">
+        <p class="bannerBase1">
+            Les bonnes raisons de choisir Auto<strong><span class="pulse">Pulse</span></strong>
         </p>
-        <div class="bb-2">
-            <p>Confiance et Sécurité Assurées </p>
-            <!-- <br> -->
-            <img src="/img/lock_2913133.png" alt="Icône " class="svg" width="70" height="70">
-            <p class="box1">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
-                par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
-        </div>
-        <div class="bb-2">
-            <p>Facilité de Communication </p>
-            <!-- <br> -->
-            <img src="/img/speak.png" alt="Icône" width="70" height="70">
-            <p class="box1">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
-                entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
-        </div>
-        <div class="bb-2">
-            <p>Évaluation Transparente</p>
-            <!-- <br> -->
-            <img src="/img/rating.png" alt="Icône" width="70" height="70">
-            <p class="box1">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
-                renforçant ainsi la confiance dans chaque transaction.</p>
+        <div class="containerBaseBanner">
+            <div class="bannerBase2">
+                <p>Confiance et Sécurité Assurées </p>
+                <!-- <br> -->
+                <img src="/img/lock_2913133.png" alt="Icône " class="svg" width="70" height="70">
+                <p class="box1">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
+                    par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
+            </div>
+            <div class="bannerBase2">
+                <p>Facilité de Communication </p>
+                <!-- <br> -->
+                <img src="/img/speak.png" alt="Icône" class="svg" width="70" height="70">
+                <p class="box1">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
+                    entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
+            </div>
+            <div class="bannerBase2">
+                <p>Évaluation Transparente</p>
+                <!-- <br> -->
+                <img src="/img/rating.png" alt="Icône" class="svg" width="70" height="70">
+                <p class="box1">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
+                    renforçant ainsi la confiance dans chaque transaction.</p>
+            </div>
         </div>
     </section>
     <section class="containerButton">
+        <h2>"Découvrez la voiture de vos rêves, disponible dès aujourd'hui entre particuliers. Faites le premier pas vers une nouvelle aventure sur quatre roues !"</h2>
         <?php if (isConnected()) : ?>
             <div class="btn1">
                 <button class="button-28" onclick="window.location.href='/'; ouvrirModal()">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
             </div>
             <div class="btn1">
-            <button class="button-28" onclick="window.location.href='<?= buildUrl('placeAnAd'); ?>'">VENDRE</button>
+                <button class="button-28" onclick="window.location.href='<?= buildUrl('placeAnAd'); ?>'">VENDRE</button>
                 <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
             </div>
         <?php else : ?>
             <div class="btn1">
                 <button class="button-28">ACHETER</button>
-                <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
+                <p class="textb">La voiture parfaite vous attend. <br/>
+                 Explorez notre marché automobile dès aujourd'hui</p>
             </div>
             <div class="btn1">
                 <button class="button-28">VENDRE</button>
