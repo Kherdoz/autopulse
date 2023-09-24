@@ -33,14 +33,13 @@ $routes = [
         'path' => '/logout',
         'controller' => 'logout.php'
     ],
+    
     // ajouter une annonce
     'placeAnAd' => [
         'path' => '/placeAnAd',
         'controller' => 'placeAnAd.php'
     ],
     
-    'css' => [
-        'path' => 'css/style.css'],
 ];
 
 return $routes;

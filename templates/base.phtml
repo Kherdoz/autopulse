@@ -8,9 +8,9 @@
     <title>autoPulse</title>
     <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="<?= asset('js/main.js') ?>" defer></script>
 </head>
@@ -19,7 +19,7 @@
     <header>
         <div class="containerHeader">
             <a href="/" class="logo">
-                <img src="<?= asset('./img/Logo-2.jpg') ?>" width="320px" height="100px" alt="logo">
+                <img src="<?= asset('./img/Logo-2.jpg') ?>" width="550px" height="150px" alt="logo">
             </a>
 
             <nav>
@@ -42,115 +42,74 @@
                         <i class="fa-solid fa-user-plus"></i>
                         acheteur
                     </a> -->
-                    <a href="<?= buildUrl('logout'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
+                    <a href="<?= buildUrl('logout'); ?>" class=" btn " onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
-                        Déconnexion
+                        <p class="spaceNav">
+                            Déconnexion
+                        </p>
                     </a>
                 <?php else : ?>
                     <!-- MENU EN MODE NON CONNECTE -->
                     <a href="/" class="btn">
                         <i class="fa-solid fa-home"></i>
-                        Accueil
+                        <p class="spaceNav">
+                            Accueil
+                        </p>
                     </a>
-                    <a href="<?= buildUrl('signup'); ?>" class=" btn btn-primary mx-1" onclick="ouvrirModal()">
+                    <a href="<?= buildUrl('signup'); ?>" class=" btn " onclick="ouvrirModal()">
                         <i class="fa-solid fa-user-plus"></i>
-                        Créer un compte
+                        <p class="spaceNav">
+                            Créer un compte
+                        </p>
                     </a>
 
-                    <a href="<?= buildUrl('login'); ?>" class=" btn btn-primary mx-1">
+                    <a href="<?= buildUrl('login'); ?>" class=" btn ">
                         <i class="fa-solid fa-right-to-bracket"></i>
-                        Connexion
+                        <p class="spaceNav">
+                            Connexion
+                        </p>
                     </a>
                 <?php endif; ?>
             </nav>
 
-            <!-- inclusion du template spécifique à la page affichée -->
-            <?php include '../templates/' . $template . '.phtml'; ?>
-
         </div>
     </header>
-    <h1>La voiture parfaite, à portée de main, entre particuliers.</h1>
-    <div class="cch">
-        <div class="container-carrousel">
-            <div>
-                <div class="content">
-                    <h2>Jane Doe</h2>
-                    <span>UI & UX Designer</span>
-                </div>
-            </div>
-            <div>
-                <div class="content">
-                    <h2>Alex Smith</h2>
-                    <span>CEO Expert</span>
-                </div>
-            </div>
-            <div>
-                <div class="content">
-                    <h2>Emily New</h2>
-                    <span>Web Designer</span>
-                </div>
-            </div>
-            <div>
-                <div class="content">
-                    <h2>Lisa Boley</h2>
-                    <span>Marketing Coordinator</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="containerBase">
-        <p class="bannerBase1">
-            Les bonnes raisons de choisir Auto<strong><span class="pulse">Pulse</span></strong>
-        </p>
-        <div class="containerBaseBanner">
-            <div class="bannerBase2">
-                <p>Confiance et Sécurité Assurées </p>
-                <!-- <br> -->
-                <img src="/img/lock_2913133.png" alt="Icône " class="svg" width="70" height="70">
-                <p class="box1">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
-                    par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
-            </div>
-            <div class="bannerBase2">
-                <p>Facilité de Communication </p>
-                <!-- <br> -->
-                <img src="/img/speak.png" alt="Icône" class="svg" width="70" height="70">
-                <p class="box1">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
-                    entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
-            </div>
-            <div class="bannerBase2">
-                <p>Évaluation Transparente</p>
-                <!-- <br> -->
-                <img src="/img/rating.png" alt="Icône" class="svg" width="70" height="70">
-                <p class="box1">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
-                    renforçant ainsi la confiance dans chaque transaction.</p>
-            </div>
-        </div>
-    </section>
-    <section class="containerButton">
-        <h2>"Découvrez la voiture de vos rêves, disponible dès aujourd'hui entre particuliers. Faites le premier pas vers une nouvelle aventure sur quatre roues !"</h2>
-        <?php if (isConnected()) : ?>
-            <div class="btn1">
-                <button class="button-28" onclick="window.location.href='/'; ouvrirModal()">ACHETER</button>
-                <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
-            </div>
-            <div class="btn1">
-                <button class="button-28" onclick="window.location.href='<?= buildUrl('placeAnAd'); ?>'">VENDRE</button>
-                <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
-            </div>
-        <?php else : ?>
-            <div class="btn1">
-                <button class="button-28">ACHETER</button>
-                <p class="textb">La voiture parfaite vous attend. 
-                 Explorez notre marché automobile dès aujourd'hui</p>
-            </div>
-            <div class="btn1">
-                <button class="button-28">VENDRE</button>
-                <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
-            </div>
-        <?php endif; ?>
-    </section>
+    <main>
+        <?php include '../templates/' . $template . '.phtml'; ?>
+    </main>
     <footer>
-        Footer
+        <div class="footerBase">
+            <div class="footerText">
+                <h4>Contactez-nous</h4>
+            </div>
+            <div class="footerLien">
+                <a href="/">00.000.00.00.00</a>
+                <a href="/">autopulse@auto.com</a>
+            </div>
+        </div>
+        <div class="footerTexte">
+            <div class="footerText">
+                <h4>A PROPOS</h4>
+            </div>
+            <div class="footerLien2">
+                <a href="/">Nous rejoindres</a>
+                <a href="/">Devenir inspecteur</a>
+                <a href="/">F.A.Q</a>
+            </div>
+        </div>
+        </div>
+        <!-- <div class="footerBotton">
+            <div class="footerIcons">
+                <a href="/" class="logoFooter">
+                    <img src="<?= asset('./img/facebook.png') ?>" width="50px" height="50px" alt="logo">
+                </a>
+                <a href="/" class="logoFooter">
+                    <img src="<?= asset('./img/instagram.png') ?>" width="50px" height="50px" alt="logo">
+                </a>
+            </div>
+            <div class="footerEnd">
+                <p>@autopulse</p>
+            </div> -->
     </footer>
 
 </body>

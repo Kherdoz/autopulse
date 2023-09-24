@@ -1,79 +1,35 @@
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <script src="<?= asset('js/main.js') ?>" defer></script>
-</head>
-
-<body class="containerBody">
-    <header>
-        <div class="containerHeader">
-            <a href="/" class="logo">
-                <img src="<?= asset('./img/Logo-2.jpg') ?>" width="320px" height="100px" alt="logo">
-            </a>
-
-            <nav>
-                <a href="/" class="btn">
-                    <i class="fa-solid fa-home"></i>
-                    Accueil
-                </a>
-
-                <!-- MENU EN MODE CONNECTE -->
-                <!-- <?php if (isConnected()) : ?>
-                    <a href="/logout" class="btn btn-primary mx-1" onclick="ouvrirModal()">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        Déconnexion
-                    </a>
-                <?php endif; ?> -->
-            </nav>
-
-            <!-- inclusion du template spécifique à la page affichée
-            <?php include '../templates/' . $template . '.phtml'; ?> -->
-    </header>
     <div class="bloc">
         <section class="containerV">
             <div class="position">
                 <div class="boxPl">
                     <p>Vendez votre vehicule</p>
                 </div>
+
                 <div class="boxPlace">
                     <p class="ongletP">Profils</p>
                     <div class="ml">
                         <a href="/" class="textN">Infos</a>
-                        <a href="/logout">Deconnexion</a>
+                        <a href="<?= buildUrl('logout'); ?>">Deconnexion</a>
                     </div>
                 </div>
+                <p class="onglet">Messagerie</p>
                 <div class="boxPlace">
-                    <p class="onglet">Messagerie</p>
                     <a href="/" class="ml">Nouveaux messages</a>
-
                 </div>
-                <div class="boxPlace">
-
-                    <p class="onglet">Documents à fournir</p>
-
+                <p class="onglet">Documents à fournir</p>
+                <div class="boxPlaceA">
                     <p class="textPlacA">Controle Technique :</p>
                     <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
                     <input type="submit" value="Envoyer">
                 </div>
-                <div class="boxPlace">
-
+                <div class="boxPlaceA">
                     <p class="textPlacA">Carte grise :</p>
                     <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
                     <input type="submit" value="Envoyer">
-
                 </div>
-
-
             </div>
+
         </section>
         <aside class="cv">
             <div class="blocT">
@@ -82,67 +38,80 @@
             </div>
             <div class="blocAnAd">
                 <div class="containerP">
-
-                    <form class="formPaD" enctype="multipart/form-data" method="post" action="/.php">
+                    <form class="formPaD" enctype="multipart/form-data" method="POST" action="">
                         <!-- Input pour la photo -->
                         <div class="flexPlaceAnAd">
                             <div class="flexPad">
-                                <label for="photo">Photo :</label>
-                                <input type="file" id="photo" name="photo" accept="image/*" onchange="afficherPhoto()" required>
+                                <label for="originalFileName">Photo :</label>
+                                <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required>
+                                <?php if (isset($errors['originalFileName'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['originalFileName']); ?></p>
+                    <?php endif; ?>
                             </div>
-
                             <!-- Sélecteur pour le type de carburant -->
                             <div class="flexPad">
-                                <label for="carburant">Carburant :</label>
-                                <select id="carburant" name="carburant" required>
+                                <label for="fuel">Carburant :</label>
+                                <select id="fuel" name="fuel" required>
                                     <option value="essence">Essence</option>
                                     <option value="diesel">Diesel</option>
-                                    <option value="diesel">Hybride</option>
+                                    <option value="hybride">Hybride</option>
                                     <option value="electrique">Électrique</option>
                                 </select>
-
+                                <?php if (isset($errors['fuel'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['fuel']); ?></p>
+                    <?php endif; ?>
                             </div>
-
+                            <div class="flexPad">
+                                <label for="make">Marque :</label>
+                                <input type="text" class="year" id="make" name="make" required>
+                                <?php if (isset($errors['make'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['make']); ?></p>
+                    <?php endif; ?>
+                            </div>
                             <!-- Champ pour l'année -->
                             <div class="flexPad">
-                                <label for="annee">Année :</label>
-                                <input type="number" class="year" name="annee" min="1990" max="2100"required>
+                                <label for="years">Année :</label>
+                                <input type="number" class="year" id="years" name="years" min="1990" max="2100" required>
+                                <?php if (isset($errors['years'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['years']); ?></p>
+                    <?php endif; ?>
                             </div>
 
                             <!-- Champ pour le nombre de pièces -->
                             <div class="flexPad">
-                                <label for="pieces">Nombre de pièces :</label>
-                                <input type="text" class="vehicleCondition" name="pieces" required>
+                                <label for="mileage">Kilométrage :</label>
+                                <input type="number" class="vehicleCondition" id="mileage" name="mileage" required>
+                                <?php if (isset($errors['mileage'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['mileage']); ?></p>
+                    <?php endif; ?>
                             </div>
 
                             <!-- Champ pour le prix -->
                             <div class="flexPad">
-                                <label for="prix">Prix :</label>
-                                <input type="text" class="price" name="prix" required>
+                                <label for="price">Prix :</label>
+                                <input type="number" class="price" id="price" name="price" required>
+                                <?php if (isset($errors['price'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['price']); ?></p>
+                    <?php endif; ?>
                             </div>
 
                             <!-- Champ pour la description -->
                             <div class="flexPad">
-                                <label for="description">Description :</label>
-                                <textarea name="ameliorer" id="ameliorer" rows="10" cols="40">
-                </textarea>
+                                <label for="accounte">Description :</label>
+                                <textarea id="accounte" name="accounte" rows="10" cols="40"></textarea>
+                                <?php if (isset($errors['accounte'])) : ?>
+                        <p class="alert alert-danger"><?= htmlspecialchars($errors['accounte']); ?></p>
+                    <?php endif; ?>
                             </div>
 
                             <!-- Bouton de soumission -->
                             <input type="submit" value="Envoyer">
                         </div>
-                    </form>
+                </form>
 
-                    <!-- Carrousel pour afficher les photos (limité à 4) -->
-                </div>
-                <div id="image-carousel"></div>
-
+                <!-- Carrousel pour afficher les photos (limité à 4) -->
+            </div>
+            <div id="image-carousel"></div>
         </aside>
     </div>
-    <footer>
-        Footer
-    </footer>
-
-</body>
-
-</html>
+   

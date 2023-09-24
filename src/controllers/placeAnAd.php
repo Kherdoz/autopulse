@@ -1,84 +1,84 @@
-
 <?php
 
-// Import de classes
-use App\Model\carModel; // Assurez-vous d'importer la classe appropriée pour gérer les annonces de véhicules
 
-// Initialisations
-$errors = []; // Tableau qui contiendra les erreurs
 
-$picture = '';
+use App\Model\carModel;
+if (!isConnected()){
+    header('Location: '.buildUrl('login'));
+    exit;
+
+}
+
+
+
+
+$errors = [];
 $make = '';
-$model = '';
 $fuel = '';
 $mileage = '';
-$vehicleCondition = '';
-$year = '';
+$accounte = '';
+$years = '';
 $price = '';
+$originalFileName = '';
 
-// Si le formulaire est soumis...
-if (!empty($_POST)) {
-
-    // 1. Récupération des champs du formulaire dans des variables
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $make = trim($_POST['make']);
-    $model = trim($_POST['model']);
     $fuel = trim($_POST['fuel']);
     $mileage = trim($_POST['mileage']);
-    $vehicleCondition = trim($_POST['vehicleCondition']);
-    $year = trim($_POST['year']);
+    $accounte = trim($_POST['accounte']);
+    $years = trim($_POST['years']);
     $price = trim($_POST['price']);
+    $originalFileName =($_FILES['originalFileName']['name']);
 
-    // 2. Validation des données du formulaire
-    if (!$make) {
+    if (empty($originalFileName)) {
+        $errors['originalFileName'] = 'Le champ "photo" est obligatoire';
+    }
+    if (empty($make)) {
         $errors['make'] = 'Le champ "Marque" est obligatoire';
     }
-
-    if (!$model) {
-        $errors['model'] = 'Le champ "Modèle" est obligatoire';
+    if (empty($accounte)) {
+        $errors['accounte'] = 'Le champ "Description" est obligatoire';
     }
-    if (!$fuel) {
-        $errors['fuel'] = 'Le champs "carburant" est obligatoire';
+    if (empty($fuel)) {
+        $errors['fuel'] = 'Le champ "carburant" est obligatoire';
     }
-    if (!$mileage) {
-        $errors['mileage'] = 'Le champs "kilometrage" est obligatoire';
+    if (empty($mileage)) {
+        $errors['mileage'] = 'Le champ "kilometrage" est obligatoire';
     }
-    if (!$vehicleCondition ) {
-        $errors['vehicleCondition '] = 'Le champs "Etat du vehicule" est obligatoire';
+    if (empty($price)) {
+        $errors['price'] = 'Le champ "Prix" est obligatoire';
     }
-    // Assurez-vous que l'année est un nombre valide
-    if (!is_numeric($year) || strlen($year) !== 4) {
-        $errors['year'] = 'Le champ "Année" doit être une année valide (ex. 2023)';
+    if (!is_numeric($years) || strlen($years) !== 4) {
+        $errors['years'] = 'Le champ "Année" doit être une année valide (ex. 2023)';
     }
-
-    // Assurez-vous que le prix est un nombre positif
     if (!is_numeric($price) || $price <= 0) {
         $errors['price'] = 'Le champ "Prix" doit être un nombre positif';
     }
+    if (!is_numeric($mileage) || $mileage <= 0) {
+        $errors['mileage'] = 'Le champ "kilométrage" doit être un nombre positif';
+    }
 
-    // Si aucune erreur... 
+    
     if (empty($errors)) {
-
-        // Gérez le téléchargement de la photo
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-            $tempFilePath = $_FILES['photo']['tmp_name'];
-            $originalFileName = $_FILES['photo']['name'];
+        if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
+            $tempFilePath = $_FILES['originalFileName']['tmp_name'];
+            $originalFileName = $_FILES['originalFileName']['name'];
             // Vous pouvez déplacer ou traiter la photo ici selon vos besoins
         }
 
-        // Créez une instance du modèle de voiture et insérez l'annonce en base de données
         $carModel = new CarModel();
-        $carModel->insertCar($make, $model, $fuel, $mileage, $vehicleCondition, $year, $price, $originalFileName);
+        $carModel->insertCar($make, $accounte, $fuel, $mileage, $years, $price, $originalFileName);
 
         // Message flash
         addFlash('Votre annonce de véhicule a bien été déposée');
 
         // Redirection vers une page de confirmation ou d'accueil
-        
-        header('Location: /placeAnAd.phtml'); 
+        // header('Location: placeAnAd.php');
         exit;
     }
 }
 
 // Affichage : inclusion du template
-$template = 'placeAnAd.phtml'; 
-include '../templates/placeAnAd.phtml';
+$template = 'placeAnAd';
+include '../templates/base.phtml';
+?>

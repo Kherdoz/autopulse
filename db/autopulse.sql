@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 17 sep. 2023 à 08:33
+-- Généré le : sam. 23 sep. 2023 à 19:36
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.2.0
 
@@ -24,6 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cars`
+--
+
+CREATE TABLE `cars` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `make` VARCHAR(255) NOT NULL,
+  `accounte` VARCHAR(255) NOT NULL,
+  `fuel` VARCHAR(255) NOT NULL,
+  `mileage` INT NOT NULL,
+  `years` INT NOT NULL,
+  `price` INT NOT NULL,
+  `originalFileName` VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -37,8 +55,21 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `password`, `createdAt`) VALUES
+(1, 'rrrrrrrrr', 'rrrrrrrrrrrrrr', 'gilles@gmail.com', '$2y$10$WFRmwbp6j4ugDTgAriixf.aBzazjXhwlMiYNXzUlEd1NLaSrjwuHy', '2023-09-17 09:20:53');
+
+--
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `user`
@@ -52,10 +83,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT pour la table `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
