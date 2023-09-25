@@ -1,19 +1,25 @@
-<div id="loginModal" class="modal-container">
-    <div class="modal-content">
-        <span class="close" id="closeLoginBtn">&times;</span>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+<div id="loginModal" class="modal-container fixed inset-0 flex items-center justify-center z-50">
+    <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+        <!-- Ajoutez la croix pour fermer la modal -->
+        <span class="close absolute top-0 right-0 p-2 cursor-pointer text-gray-600 hover:text-red-500">&times;</span>
 
         <form action="/login" method="POST">
             <fieldset>
-                <legend>Connexion</legend>
-                <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email">
+                <legend class="text-xl font-semibold mb-4">Connexion</legend>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-600">Email</label>
+                    <!-- Utilisez les classes de grille de Tailwind CSS pour rendre le champ d'entrée responsive -->
+                    <input class="w-full md:w-64 border border-gray-300 rounded-lg py-2 px-3" type="email" name="email" id="email">
                 </div>
-                <div class="mb-3">
-                    <label for="password">Mot de passe</label>
-                    <input class="form-control" type="password" name="password" id="password">
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-600">Mot de passe</label>
+                    <!-- Utilisez les classes de grille de Tailwind CSS pour rendre le champ d'entrée responsive -->
+                    <input class="w-full md:w-64 border border-gray-300 rounded-lg py-2 px-3" type="password" name="password" id="password">
                 </div>
-                <input class="btn btn-primary" type="submit" value="Connexion">
+                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" value="Connexion">
             </fieldset>
         </form>
     </div>

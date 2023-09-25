@@ -1,48 +1,57 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-<div id="signupModal" class="modal-container">
-    <div class="modal-content">
-        <span class="close" id="closeSignUpBtn">&times;</span>
+<div id="signupModal" class="modal-container fixed inset-0 flex items-center justify-center z-50">
+    <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+        <!-- Ajoutez la croix pour fermer la modal -->
+        <span class="close absolute top-0 right-0 p-2 cursor-pointer text-gray-600 hover:text-red-500">&times;</span>
 
-
-        <form action="/signup" method="POST">
+        <form action="/signup" method="POST" class="mx-auto text-center w-full md:w-96"> <!-- Ajout de classes pour centrer et ajuster la largeur -->
             <fieldset>
-                <legend>Créez votre compte</legend>
-                <div class="mb-3">
-                    <label for="firstname">Prénom</label>
-                    <input class="form-control" type="text" name="firstname" id="firstname" value="<?= htmlspecialchars($firstname); ?>">
-                    <?php if (isset($errors['firstname'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['firstname']); ?></p>
-                    <?php endif; ?>
+                <!-- Ajoutez votre logo ici -->
+                <div class="text-center mb-4">
+                    <img src="/img/Logo-2.jpg" alt="Logo de votre site" class="mx-auto w-30 h-30">
                 </div>
-                <div class="mb-3">
-                    <label for="lastname">Nom</label>
-                    <input class="form-control" type="text" name="lastname" id="lastname" value="<?= htmlspecialchars($lastname); ?>">
-                    <?php if (isset($errors['lastname'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['lastname']); ?></p>
-                    <?php endif; ?>
+                <!-- <legend class="text-xl font-semibold mb-4 ">Créez votre compte</legend> -->
+                <div class="mb-4 md:flex justify-between"> <!-- Utilisation de classes flex pour aligner horizontalement et répartir l'espace -->
+                    <div class="mb-4 md:w-1/2 md:mr-2"> <!-- Utilisation de classes de largeur pour ajuster la taille sur les écrans de bureau -->
+                        <label for="firstname" class="block text-gray-600 text-sm">Prénom</label> <!-- Ajout de la classe text-sm -->
+                        <input class="w-full border border-gray-300 rounded-lg py-2 px-3" type="text" name="firstname" id="firstname" value="<?= htmlspecialchars($firstname); ?>">
+                        <?php if (isset($errors['firstname'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['firstname']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="mb-4 md:w-1/2"> <!-- Utilisation de classes de largeur pour ajuster la taille sur les écrans de bureau -->
+                        <label for="lastname" class="block text-gray-600 text-sm">Nom</label> <!-- Ajout de la classe text-sm -->
+                        <input class="w-full border border-gray-300 rounded-lg py-2 px-3" type="text" name="lastname" id="lastname" value="<?= htmlspecialchars($lastname); ?>">
+                        <?php if (isset($errors['lastname'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['lastname']); ?></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input class="form-control" type="text" name="email" id="email" value="<?= htmlspecialchars($email); ?>">
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-600 text-sm">Email</label> <!-- Ajout de la classe text-sm -->
+                    <input class="w-full border border-gray-300 rounded-lg py-2 px-3" type="text" name="email" id="email" value="<?= htmlspecialchars($email); ?>">
                     <?php if (isset($errors['email'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['email']); ?></p>
+                        <p class="text-red-500"><?= htmlspecialchars($errors['email']); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="mb-3">
-                    <label for="password">Mot de passe</label>
-                    <input class="form-control" type="password" name="password" id="password">
-                    <?php if (isset($errors['password'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['password']); ?></p>
-                    <?php endif; ?>
+                <div class="mb-4 md:flex justify-between"> <!-- Utilisation de classes flex pour aligner horizontalement et répartir l'espace -->
+                    <div class="mb-4 md:w-1/2 md:mr-2"> <!-- Utilisation de classes de largeur pour ajuster la taille sur les écrans de bureau -->
+                        <label for="password" class="block text-gray-600 text-sm">Mot de passe</label> <!-- Ajout de la classe text-sm -->
+                        <input class="w-full border border-gray-300 rounded-lg py-2 px-3" type="password" name="password" id="password">
+                        <?php if (isset($errors['password'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['password']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="mb-4 md:w-1/2"> <!-- Utilisation de classes de largeur pour ajuster la taille sur les écrans de bureau -->
+                        <label for="password-confirm" class="block text-gray-600 text-sm">Confirmer le mot de passe</label> <!-- Ajout de la classe text-sm -->
+                        <input class="w-full border border-gray-300 rounded-lg py-2 px-3" type="password" name="password-confirm" id="password-confirm">
+                        <?php if (isset($errors['password-confirm'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['password-confirm']); ?></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="password-confirm">Mot de passe (confirmation)</label>
-                    <input class="form-control" type="password" name="password-confirm" id="password-confirm">
-                    <?php if (isset($errors['password-confirm'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['password-confirm']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <input class="btn btn-primary submitSignup" type="submit" value="Valider">
+                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" value="Valider">
             </fieldset>
         </form>
     </div>

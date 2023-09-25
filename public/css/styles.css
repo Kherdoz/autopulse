@@ -53,12 +53,17 @@ text-align: center;
 color:white;
 }
 .bannerBase2{
-font-size: 1.1rem;
-/* flex-direction: row; */
-flex: 1 1 300px;
-text-align: center;
-color:#fff;
+  display: flex;
+  font-size: 1.1rem;
+  flex-direction: column;
+  /* flex: 1 1 300px; */
+  text-align: center;
+  color: #fff;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
+
 h1{
 margin: 20px;
 text-align: center;
@@ -86,14 +91,15 @@ margin-top: 10px;
 }
 
 .containerButton{
-margin-top: 60px;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 15px;
-height: 200px;
-    
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 15px;
+  height: 200px;
 }
+    
+
 .textb{
   color: rgb(13, 59, 102);  
 margin-top: 30px;
@@ -124,6 +130,7 @@ gap: 10px;
 align-items: center;
 margin-top: 10px;
 flex-direction: column;
+color: white;
 }
 .footerText{
   
@@ -150,7 +157,7 @@ color: white;
 .footerLien2{
   display: flex;
     width: 500px;
-   
+   color: white;
     /* gap: 10px; */
     flex-direction: row;
     flex-wrap: wrap;
@@ -165,9 +172,7 @@ border: solid 1px brown;
 .footerIcons{
 display: flex;
 }
-.logoFooter{
 
-}
 /* style bouton */
 .btn{
   align-items: center;
@@ -418,7 +423,7 @@ height: 900px;
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap: 60px;
+gap: 40px;
 }
 .boxPlace{
 display: flex;
@@ -473,6 +478,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 20px;
+color: #ffffff;
 }
 
 a {

@@ -21,27 +21,11 @@
             <a href="/" class="logo">
                 <img src="<?= asset('./img/Logo-2.jpg') ?>" width="550px" height="150px" alt="logo">
             </a>
-
             <nav>
-                <!-- <a href="/" class="btn">
-                    <i class="fa-solid fa-home"></i>
-                    Accueil
-                </a> -->
-
+          
                 <!-- MENU EN MODE CONNECTE -->
                 <?php if (isConnected()) : ?>
-                    <!-- <a href="/" class="btn">
-                    <i class="fa-solid fa-home"></i>
-                    Accueil
-                </a> -->
-                    <!-- <a href="/placeAnAd" class="btn btn-primary mx-1" onclick="ouvrirModal()">
-                        <i class="fa-solid fa-user-plus"></i>
-                        vendeur
-                    </a>
-                    <a href="/" class="btn btn-primary mx-1" onclick="ouvrirModal()">
-                        <i class="fa-solid fa-user-plus"></i>
-                        acheteur
-                    </a> -->
+                    
                     <a href="<?= buildUrl('logout'); ?>" class=" btn " onclick="ouvrirModal()">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <p class="spaceNav">
@@ -71,12 +55,11 @@
                     </a>
                 <?php endif; ?>
             </nav>
-
         </div>
     </header>
-    <main>
-        <?php include '../templates/' . $template . '.phtml'; ?>
-    </main>
+   <main>
+   <?php include '../templates/' . $template . '.phtml'; ?>
+   </main>
     <footer>
         <div class="footerBase">
             <div class="footerText">

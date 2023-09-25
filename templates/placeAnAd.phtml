@@ -1,117 +1,122 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <div class="bloc">
-        <section class="containerV">
-            <div class="position">
-                <div class="boxPl">
-                    <p>Vendez votre vehicule</p>
-                </div>
-
-                <div class="boxPlace">
-                    <p class="ongletP">Profils</p>
-                    <div class="ml">
-                        <a href="/" class="textN">Infos</a>
-                        <a href="<?= buildUrl('logout'); ?>">Deconnexion</a>
-                    </div>
-                </div>
-                <p class="onglet">Messagerie</p>
-                <div class="boxPlace">
-                    <a href="/" class="ml">Nouveaux messages</a>
-                </div>
-                <p class="onglet">Documents à fournir</p>
-                <div class="boxPlaceA">
-                    <p class="textPlacA">Controle Technique :</p>
-                    <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
-                    <input type="submit" value="Envoyer">
-                </div>
-                <div class="boxPlaceA">
-                    <p class="textPlacA">Carte grise :</p>
-                    <input type="file" name="file" id="file" accept=".pdf, .doc, .docx">
-                    <input type="submit" value="Envoyer">
-                </div>
+<div class="bloc">
+    <section class="containerV">
+        <div class="position">
+            <div class="boxPl">
+                <p>Vendez votre vehicule</p>
             </div>
 
-        </section>
-        <aside class="cv">
-            <div class="blocT">
-                <img src="<?= asset('/img/checklist.png') ?>" width="150px" height="150px" alt="logo">
-                <p class="flxT">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+            <div class="boxPlace">
+                <p class="ongletP">Profils</p>
+                <div class="ml">
+                    <a href="/" class="textN">Infos</a>
+                    <a href="/" class="textN">Annonces</a>
+                    <a href="<?= buildUrl('logout'); ?>">Deconnexion</a>
+                </div>
             </div>
-            <div class="blocAnAd">
-                <div class="containerP">
-                    <form class="formPaD" enctype="multipart/form-data" method="POST" action="">
-                        <!-- Input pour la photo -->
-                        <div class="flexPlaceAnAd">
-                            <div class="flexPad">
-                                <label for="originalFileName">Photo :</label>
-                                <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required>
+            <p class="onglet">Messagerie</p>
+            <div class="boxPlace">
+                <a href="/" class="ml">Nouveaux messages</a>
+            </div>
+            <p class="onglet">Documents à fournir</p>
+            <div class="boxPlaceA space-y-1 ">
+                <p class="textPlacA">Controle Technique :</p>
+                <input type="file" name="file" id="file" accept=".pdf, .doc, .docx" class="border rounded-md p-1">
+                <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md">
+            </div>
+
+            <div class="boxPlaceA space-y-2 mt-1 ">
+                <p class="textPlacA ">Carte grise :</p>
+                <input type="file" name="file" id="file" accept=".pdf, .doc, .docx" class="border rounded-md p-1">
+                <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
+            </div>
+
+
+        </div>
+
+    </section>
+    <aside class="cv">
+        <div class="blocT">
+            <img src="<?= asset('/img/checklist.png') ?>" width="150px" height="150px" alt="logo">
+            <p class="flxT">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+        </div>
+        <div class="blocAnAd">
+            <div class="containerP">
+                <form class="formPaD" enctype="multipart/form-data" method="POST" action="">
+                    <div class="flexPlaceAnAd space-y-4 flex-wrap">
+                        <!-- Placez les champs "Photo", "Carburant" et "Prix" sur la même ligne -->
+                        <div class="flexPad w-full lg:flex">
+                            <div class="w-full lg:w-1/2 pr-2">
+                                <label for="originalFileName" class="block font-semibold">Photo :</label>
+                                <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required class="w-full border rounded-md p-2">
                                 <?php if (isset($errors['originalFileName'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['originalFileName']); ?></p>
-                    <?php endif; ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['originalFileName']); ?></p>
+                                <?php endif; ?>
                             </div>
-                            <!-- Sélecteur pour le type de carburant -->
-                            <div class="flexPad">
-                                <label for="fuel">Carburant :</label>
-                                <select id="fuel" name="fuel" required>
+                            <div class="w-full lg:w-1/4 pr-2">
+                                <label for="fuel" class="block font-semibold">Carburant :</label>
+                                <select id="fuel" name="fuel" required class="w-full border rounded-md p-2">
                                     <option value="essence">Essence</option>
                                     <option value="diesel">Diesel</option>
                                     <option value="hybride">Hybride</option>
                                     <option value="electrique">Électrique</option>
                                 </select>
                                 <?php if (isset($errors['fuel'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['fuel']); ?></p>
-                    <?php endif; ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['fuel']); ?></p>
+                                <?php endif; ?>
                             </div>
-                            <div class="flexPad">
-                                <label for="make">Marque :</label>
-                                <input type="text" class="year" id="make" name="make" required>
-                                <?php if (isset($errors['make'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['make']); ?></p>
-                    <?php endif; ?>
-                            </div>
-                            <!-- Champ pour l'année -->
-                            <div class="flexPad">
-                                <label for="years">Année :</label>
-                                <input type="number" class="year" id="years" name="years" min="1990" max="2100" required>
-                                <?php if (isset($errors['years'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['years']); ?></p>
-                    <?php endif; ?>
-                            </div>
-
-                            <!-- Champ pour le nombre de pièces -->
-                            <div class="flexPad">
-                                <label for="mileage">Kilométrage :</label>
-                                <input type="number" class="vehicleCondition" id="mileage" name="mileage" required>
-                                <?php if (isset($errors['mileage'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['mileage']); ?></p>
-                    <?php endif; ?>
-                            </div>
-
-                            <!-- Champ pour le prix -->
-                            <div class="flexPad">
-                                <label for="price">Prix :</label>
-                                <input type="number" class="price" id="price" name="price" required>
+                            <div class="w-full lg:w-1/4">
+                                <label for="price" class="block font-semibold">Prix :</label>
+                                <input type="number" class="price w-full border rounded-md p-2" id="price" name="price" required>
                                 <?php if (isset($errors['price'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['price']); ?></p>
-                    <?php endif; ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['price']); ?></p>
+                                <?php endif; ?>
                             </div>
-
-                            <!-- Champ pour la description -->
-                            <div class="flexPad">
-                                <label for="accounte">Description :</label>
-                                <textarea id="accounte" name="accounte" rows="10" cols="40"></textarea>
-                                <?php if (isset($errors['accounte'])) : ?>
-                        <p class="alert alert-danger"><?= htmlspecialchars($errors['accounte']); ?></p>
-                    <?php endif; ?>
-                            </div>
-
-                            <!-- Bouton de soumission -->
-                            <input type="submit" value="Envoyer">
                         </div>
-                </form>
+                        <!-- Placez les champs "Marque", "Année" et "Kilométrage" sur la même ligne -->
+                        <div class="flexPad w-full lg:flex">
+                            <div class="w-full lg:w-1/3 pr-2">
+                                <label for="make" class="block font-semibold">Marque :</label>
+                                <input type="text" class="year w-full border rounded-md p-2" id="make" name="make" required>
+                                <?php if (isset($errors['make'])) : ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['make']); ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="w-full lg:w-1/3 pr-2">
+                                <label for="years" class="block font-semibold">Année :</label>
+                                <input type="number" class="year w-full border rounded-md p-2" id="years" name="years" min="1990" max="2100" required>
+                                <?php if (isset($errors['years'])) : ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['years']); ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="w-full lg:w-1/3">
+                                <label for="mileage" class="block font-semibold">Kilométrage :</label>
+                                <input type="number" class="vehicleCondition w-full border rounded-md p-2" id="mileage" name="mileage" required>
+                                <?php if (isset($errors['mileage'])) : ?>
+                                    <p class="alert alert-danger"><?= htmlspecialchars($errors['mileage']); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
+                        <!-- Champ pour la description -->
+                        <!-- Champ pour la description avec une taille réduite en hauteur -->
+                        <div class="flexPad w-full  flex justify-between items-center">
+                            <label for="accounte" class="block font-semibold">Description :</label>
+                            <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-3/5 border rounded-md p-2"></textarea>
+                            <?php if (isset($errors['accounte'])) : ?>
+                                <p class="alert alert-danger"><?= htmlspecialchars($errors['accounte']); ?></p>
+                            <?php endif; ?>
+                            <!-- Bouton de soumission -->
+                            <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-5 rounded-md">
+                        </div>
+
+                    </div>
+                </form>
                 <!-- Carrousel pour afficher les photos (limité à 4) -->
             </div>
+
+
             <div id="image-carousel"></div>
-        </aside>
-    </div>
-   
+    </aside>
+</div>
