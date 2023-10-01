@@ -1,4 +1,4 @@
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
 
 <div class="bloc">
     <section class="containerV">
@@ -6,12 +6,11 @@
             <div class="boxPl">
                 <p>Vendez votre vehicule</p>
             </div>
-
             <div class="boxPlace">
                 <p class="ongletP">Profils</p>
                 <div class="ml">
-                    <a href="/" class="textN">Infos</a>
-                    <a href="/" class="textN">Annonces</a>
+                    <a href="/" class="textN">Informations</a>
+                    <a href="<?= buildUrl('notice'); ?>" class="textN"> Mes Annonces</a>
                     <a href="<?= buildUrl('logout'); ?>">Deconnexion</a>
                 </div>
             </div>
@@ -49,6 +48,7 @@
                         <div class="flexPad w-full lg:flex">
                             <div class="w-full lg:w-1/2 pr-2">
                                 <label for="originalFileName" class="block font-semibold">Photo :</label>
+                                
                                 <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required class="w-full border rounded-md p-2">
                                 <?php if (isset($errors['originalFileName'])) : ?>
                                     <p class="alert alert-danger"><?= htmlspecialchars($errors['originalFileName']); ?></p>

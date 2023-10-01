@@ -1,0 +1,56 @@
+
+<div class="max-w-xl mx-auto">
+    <!-- Bloc moyen pour les champs du formulaire -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+        <h1 class="text-2xl font-semibold mb-4">Modifier la voiture</h1>
+        <form method="POST" action="">
+            <!-- Champs de formulaire -->
+            <div class="mb-4">
+                <label for="make" class="block text-sm font-medium text-gray-700">Marque :</label>
+                <p><?php echo $car['make']; ?></p>
+                <input type="hidden" name="id" value="<?= $car['id'] ?>">
+                <input type="text" id="make" name="make" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required value="<?= $car['make'] ?>">
+                <!-- Afficher l'élément récupéré sous le champ -->
+                <?php if (!empty($car['make'])) : ?>
+                    <p class="text-sm text-gray-500 mt-1">Marque actuelle : <?= $car['make'] ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="mb-4">
+                <label for="fuel" class="block text-sm font-medium text-gray-700">Carburant :</label>
+                <select id="fuel" name="fuel" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+                    <option value="essence" <?= ($car['fuel'] === 'essence') ? 'selected' : '' ?>>Essence</option>
+                    <option value="diesel" <?= ($car['fuel'] === 'diesel') ? 'selected' : '' ?>>Diesel</option>
+                    <option value="hybride" <?= ($car['fuel'] === 'hybride') ? 'selected' : '' ?>>Hybride</option>
+                    <option value="electrique" <?= ($car['fuel'] === 'electrique') ? 'selected' : '' ?>>Électrique</option>
+                </select>
+                <!-- Afficher l'élément récupéré sous le champ -->
+                <?php if (!empty($car['fuel'])) : ?>
+                    <p class="text-sm text-gray-500 mt-1">Carburant actuel : <?= $car['fuel'] ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="mb-4">
+                <label for="price" class="block text-sm font-medium text-gray-700">Prix :</label>
+                <input type="number" id="price" name="price" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required value="<?= $car['price'] ?>">
+                <!-- Afficher l'élément récupéré sous le champ -->
+                <?php if (!empty($car['price'])) : ?>
+                    <p class="text-sm text-gray-500 mt-1">Prix actuel : <?= $car['price'] ?></p>
+                <?php endif; ?>
+            </div>
+            <!-- Ajoutez ici les autres champs du formulaire -->
+            <!-- Bouton de soumission -->
+            <div class="mt-6">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Blocs petits alignés horizontalement -->
+    <div class="flex justify-between">
+        <div class="bg-white p-4 rounded-lg shadow-md mr-4">
+            <!-- Contenu du premier bloc -->
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <!-- Contenu du deuxième bloc -->
+        </div>
+    </div>
+</div>

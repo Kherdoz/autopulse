@@ -5,7 +5,7 @@
     <div class="alert alert-success text-center pt-3 pb-4"><?=htmlspecialchars($flashMessage);?></div>
 <?php endif; ?>
 
-<h1>La voiture parfaite, à portée de main, entre particuliers.</h1>
+<h1 class="text-3xl mt-6">La voiture parfaite, à portée de main, entre particuliers.</h1>
     <div class="cch">
         <div class="container-carrousel">
             <div>
@@ -77,12 +77,12 @@
             </div>
         <?php else : ?>
             <div class="btn1">
-                <button class="button-28">ACHETER</button>
+                <button class="button-28" onclick="window.location.href='<?= buildUrl('signup'); ?>'">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend.
                     Explorez notre marché automobile dès aujourd'hui</p>
             </div>
             <div class="btn1">
-                <button class="button-28">VENDRE</button>
+                <button class="button-28" onclick="window.location.href='<?= buildUrl('signup'); ?>'">VENDRE</button>
                 <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
             </div>
         <?php endif; ?>

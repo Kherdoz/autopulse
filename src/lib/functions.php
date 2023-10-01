@@ -132,7 +132,7 @@ function buildUrl(string $routeName, array $params = []): string
     } else {
         throw new Exception("Route introuvable : $routeName", 404);
     }
-}
+};
 function asset(string $resourcePath): string
 {
     // Utilisez la constante BASE_URL pour construire l'URL complet
@@ -140,4 +140,5 @@ function asset(string $resourcePath): string
 
     // Retournez l'URL construite
     return $url;
-}
+};
+

@@ -13,12 +13,12 @@ for (const closeModalButton of closeModalsButtons) {
 //   const imageCarousel = document.getElementById("image-carousel");
 
 //   // Vérifier s'il y a des fichiers sélectionnés
-//   // if (input.files && input.files.length > 0) {
-//   //   // Limiter à 4 photos
-//   //   if (imageCarousel.children.length >= 4) {
-//   //     alert("Vous ne pouvez télécharger que 4 photos maximum.");
-//   //     return;
-//   //   }
+//   if (input.files && input.files.length > 0) {
+//     // Limiter à 4 photos
+//     if (imageCarousel.children.length >= 4) {
+//       alert("Vous ne pouvez télécharger que 4 photos maximum.");
+//       return;
+//     }
 
 //     for (let i = 0; i < input.files.length; i++) {
 //       const file = input.files[i];
