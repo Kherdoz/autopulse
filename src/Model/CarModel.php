@@ -39,35 +39,35 @@ class CarModel extends AbstractModel {
 }
 
 
-// public function updateCar(int $carId, string $make, string $accounte, string $fuel, int $mileage, int $years, int $price, string $originalFileName)
-// {
-//     // Requête SQL pour la mise à jour des données de la voiture
-//     $sql = 'UPDATE cars
-//             SET make = ?, accounte = ?, fuel = ?, mileage = ?, years = ?, price = ?, originalFileName = ?
-//             WHERE id = ?';
-
-//     $pdoStatement = self::$pdo->prepare($sql);
-
-//     // Exécution de la requête de mise à jour
-//     $success = $pdoStatement->execute([$make, $accounte, $fuel, $mileage, $years, $price, $originalFileName, $carId]);
-
-//     return $success;
-// }
-
-public function updateCar(int $carId, string $make, string $fuel, int $price)
+public function updateCar(int $carId, string $make, string $accounte, string $fuel, int $mileage, int $years, int $price, string $originalFileName)
 {
     // Requête SQL pour la mise à jour des données de la voiture
     $sql = 'UPDATE cars
-            SET make  = ?, fuel  = ?, price = ?
+            SET make = ?, accounte = ?, fuel = ?, mileage = ?, years = ?, price = ?, originalFileName = ?
             WHERE id = ?';
 
     $pdoStatement = self::$pdo->prepare($sql);
 
     // Exécution de la requête de mise à jour
-    $success = $pdoStatement->execute([$make, $fuel, $price, $carId]);
+    $success = $pdoStatement->execute([$make, $accounte, $fuel, $mileage, $years, $price, $originalFileName, $carId]);
 
     return $success;
 }
+
+// public function updateCar(int $carId, string $make, string $fuel, int $price)
+// {
+//     // Requête SQL pour la mise à jour des données de la voiture
+//     $sql = 'UPDATE cars
+//             SET make  = ?, fuel  = ?, price = ?
+//             WHERE id = ?';
+
+//     $pdoStatement = self::$pdo->prepare($sql);
+
+//     // Exécution de la requête de mise à jour
+//     $success = $pdoStatement->execute([$make, $fuel, $price, $carId]);
+
+//     return $success;
+// }
 public function deleteCar(int $carId)
 {
     // Requête SQL pour la suppression de la voiture

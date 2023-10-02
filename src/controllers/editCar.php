@@ -17,32 +17,32 @@ function editCar(int $carId)
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $make = trim($_POST['make']);
-        // $accounte = trim($_POST['accounte']);
+        $accounte = trim($_POST['accounte']);
         $fuel = trim($_POST['fuel']);
 
         // Convertir la valeur de mileage en entier
-        // $mileage = isset($_POST['mileage']) ? (int)$_POST['mileage'] : 0;
+        $mileage = isset($_POST['mileage']) ? (int)$_POST['mileage'] : 0;
 
         // Convertir la valeur de years en entier
-        // $years = isset($_POST['years']) ? (int)$_POST['years'] : 0;
+        $years = isset($_POST['years']) ? (int)$_POST['years'] : 0;
 
         // Convertir la valeur de price en entier
         $price = isset($_POST['price']) ? (int)$_POST['price'] : 0;
 
-        // $originalFileName = isset($_FILES['originalFileName']['name']) ? $_FILES['originalFileName']['name'] : '';
+        $originalFileName = isset($_FILES['originalFileName']['name']) ? $_FILES['originalFileName']['name'] : '';
 
         // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
         //todo
         // Si aucune erreur n'est détectée...
         if (empty($errors)) {
-            // if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
-            //     $tempFilePath = $_FILES['originalFileName']['tmp_name'];
-            //     $originalFileName = $_FILES['originalFileName']['name'];
-            //     // Vous pouvez déplacer ou traiter la photo ici selon vos besoins
-            // }
+            if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
+                $tempFilePath = $_FILES['originalFileName']['tmp_name'];
+                $originalFileName = $_FILES['originalFileName']['name'];
+                // Vous pouvez déplacer ou traiter la photo ici selon vos besoins
+            }
 
             $carModel = new CarModel();
-            $carModel->updateCar($carId, $make,/*$accounte*/ $fuel/*, $mileage, $years*/, $price/*, $originalFileName*/);
+            $carModel->updateCar($carId, $make, $accounte, $fuel, $mileage, $years, $price, $originalFileName);
 
             // Message flash
             addFlash('Votre annonce de véhicule a bien été mise à jour');

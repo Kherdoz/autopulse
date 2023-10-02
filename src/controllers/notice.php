@@ -10,7 +10,7 @@ if (!isConnected()){
 
 
 
-
+$flashMessage = fetchFlash();
 
 
 
