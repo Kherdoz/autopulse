@@ -30,7 +30,8 @@ function editCar(int $carId)
         $price = isset($_POST['price']) ? (int)$_POST['price'] : 0;
 
         $originalFileName = isset($_FILES['originalFileName']['name']) ? $_FILES['originalFileName']['name'] : '';
-
+    
+       
         // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
         //todo
         // Si aucune erreur n'est détectée...
@@ -38,7 +39,8 @@ function editCar(int $carId)
             if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
                 $tempFilePath = $_FILES['originalFileName']['tmp_name'];
                 $originalFileName = $_FILES['originalFileName']['name'];
-                // Vous pouvez déplacer ou traiter la photo ici selon vos besoins
+
+                move_uploaded_file($tempFilePath['tmp_name'],"./images/".$originalFileName['name']);
             }
 
             $carModel = new CarModel();

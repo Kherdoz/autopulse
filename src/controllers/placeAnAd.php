@@ -1,16 +1,22 @@
 <?php
+use App\Model\CarModel;
 
+if (!isConnected()) {
 
-
-use App\Model\carModel;
-if (!isConnected()){
-    header('Location: '.buildUrl('login'));
+    header('Location: ' . buildUrl('login'));
     exit;
-
 }
 
+$flashMessage = fetchFlash();
 
-
+if (!empty($_FILES)) {
+    $originalFileName = $_FILES['originalFileName'];
+    $ext = strtolower(substr($originalFileName['name'], -3));
+    $allow_ext = ["jpg", 'png'];
+    if (in_array($ext, $allow_ext)) {
+        move_uploaded_file($originalFileName['tmp_name'], "./images/" . $originalFileName['name']);
+    }
+}
 
 $errors = [];
 $make = '';
@@ -28,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $accounte = trim($_POST['accounte']);
     $years = trim($_POST['years']);
     $price = trim($_POST['price']);
-    $originalFileName =($_FILES['originalFileName']['name']);
+    $originalFileName = ($_FILES['originalFileName']['name']);
 
     if (empty($originalFileName)) {
         $errors['originalFileName'] = 'Le champ "photo" est obligatoire';
@@ -58,22 +64,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['mileage'] = 'Le champ "kilométrage" doit être un nombre positif';
     }
 
-    
-    if (empty($errors)) {
-        if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
-            $tempFilePath = $_FILES['originalFileName']['tmp_name'];
-            $originalFileName = $_FILES['originalFileName']['name'];
-            // Vous pouvez déplacer ou traiter la photo ici selon vos besoins
-        }
 
-        $carModel = new CarModel();
-        $carModel->insertCar($make, $accounte, $fuel, $mileage, $years, $price, $originalFileName);
+    if (empty($errors)) {
+        $carModel = new CarModel(); // Instanciez d'abord la classe CarModel
+
+        // Ajoutez cette ligne pour obtenir l'identifiant de l'utilisateur connecté
+        $usercars_id = $_SESSION['user']['id'];
+
+        // Modifiez cette ligne pour récupérer les annonces de l'utilisateur connecté
+        $cars = $carModel->getCarsByUserId($usercars_id);
+
+        // Associez l'annonce à l'utilisateur en passant l'identifiant de l'utilisateur
+        $carModel->insertCar($make, $accounte, $fuel, $mileage, $years, $price, $originalFileName, $usercars_id);
 
         // Message flash
         addFlash('Votre annonce de véhicule a bien été déposée');
 
         // Redirection vers une page de confirmation ou d'accueil
-        // header('Location: placeAnAd.php');
+        header('Location: ' . buildUrl('placeAnAd'));
         exit;
     }
 }
@@ -81,4 +89,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Affichage : inclusion du template
 $template = 'placeAnAd';
 include '../templates/base.phtml';
-?>
+

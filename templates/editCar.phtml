@@ -1,11 +1,23 @@
 <div class="max-w-xl mx-auto">
     <!-- Affichage de l'image originalFileName -->
-    
+
     <!-- Formulaire en utilisant flexbox pour la mise en page -->
     <div class="bg-white p-6 rounded-lg shadow-md my-8">
         <h1 class="text-2xl font-semibold mb-4">Modifier la voiture</h1>
-        <form method="POST" action="">
-            <img src="<?= $car['originalFileName'] ?>" alt="Image de la voiture">
+        <form method="POST" action="" enctype="multipart/form-data">
+            <div class="w-65 h-65">
+                <img src="<?= asset('images/' . $car['originalFileName']) ?>" alt="Image de la voiture" class="w-full h-full object-cover border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mt-2">
+                <input type="hidden" name="originalFileName" value="<?= $car['originalFileName'] ?>">
+            </div>
+            <!-- Champ de téléchargement de fichier pour la nouvelle image -->
+            <div class="mt-2 flex flex-col items-center justify-items-center">
+                <label for="newImage" class="block text-sm font-medium text-gray-700">Nouvelle image de la voiture</label>
+                <input type="file" name="newImage" id="newImage" class="mt-1 p-2  border-gray-300 rounded-md">
+            </div>
+        
             <div class="flex flex-wrap -mx-4 mb-4">
                 <!-- Marque -->
                 <div class="w-1/3 px-4 mb-4">
