@@ -29,18 +29,19 @@ function editCar(int $carId)
         // Convertir la valeur de price en entier
         $price = isset($_POST['price']) ? (int)$_POST['price'] : 0;
 
-        $originalFileName = isset($_FILES['originalFileName']['name']) ? $_FILES['originalFileName']['name'] : '';
+        $originalFileName = isset($_FILES['newImage']['name']) ? $_FILES['newImage']['name'] : '';
     
        
         // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
         //todo
         // Si aucune erreur n'est détectée...
         if (empty($errors)) {
-            if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
-                $tempFilePath = $_FILES['originalFileName']['tmp_name'];
-                $originalFileName = $_FILES['originalFileName']['name'];
+            var_dump($_FILES);
+            if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
+                $tempFilePath = $_FILES['newImage']['tmp_name'];
+                $originalFileName = $_FILES['newImage']['name'];
 
-                move_uploaded_file($tempFilePath['tmp_name'],"./images/".$originalFileName['name']);
+                move_uploaded_file($tempFilePath,"./images/".$originalFileName);
             }
 
             $carModel = new CarModel();
