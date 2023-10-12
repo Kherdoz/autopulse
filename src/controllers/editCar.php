@@ -36,8 +36,9 @@ function editCar(int $carId)
         //todo
         // Si aucune erreur n'est détectée...
         if (empty($errors)) {
-            var_dump($_FILES);
-            if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
+        
+            if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {$
+                //etape 1. clean l'ancienne image pour ajouter la nouvelle .
                 $tempFilePath = $_FILES['newImage']['tmp_name'];
                 $originalFileName = $_FILES['newImage']['name'];
 

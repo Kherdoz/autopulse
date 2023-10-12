@@ -68,11 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errors)) {
         $carModel = new CarModel(); // Instanciez d'abord la classe CarModel
 
-        // Ajoutez cette ligne pour obtenir l'identifiant de l'utilisateur connecté
-        $usercars_id = $_SESSION['user']['id'];
-
-        // Modifiez cette ligne pour récupérer les annonces de l'utilisateur connecté
-        $cars = $carModel->getCarsByUserId($usercars_id);
+       // Ajoutez cette ligne pour obtenir l'identifiant de l'utilisateur connecté
+       $usercars_id = $_SESSION['user']['id'];
 
         // Associez l'annonce à l'utilisateur en passant l'identifiant de l'utilisateur
         $carModel->insertCar($make, $accounte, $fuel, $mileage, $years, $price, $originalFileName, $usercars_id);

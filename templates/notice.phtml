@@ -1,5 +1,7 @@
 <?php if ($flashMessage) : ?>
-    <div class="alert alert-success text-center pt-3 pb-4"><?= htmlspecialchars($flashMessage); ?></div>
+    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md">
+        <?= htmlspecialchars($flashMessage); ?>
+    </div>
 <?php endif; ?>
 
 <form action="/editCar" method="GET"  enctype="multipart/form-data">

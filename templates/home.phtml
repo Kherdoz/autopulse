@@ -1,9 +1,12 @@
 
 
 <!-- Affichage du message flash le cas échéant -->
-<?php if ($flashMessage): ?>
-    <div class="alert alert-success text-center pt-3 pb-4">warning</div>
+<?php if ($flashMessage) : ?>
+    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md">
+        <?= htmlspecialchars($flashMessage); ?>
+    </div>
 <?php endif; ?>
+
 
 <h1 class="text-3xl mt-6">La voiture parfaite, à portée de main, entre particuliers.</h1>
     <div class="cch">
