@@ -8,6 +8,7 @@ for (const closeModalButton of closeModalsButtons) {
   closeModalButton.addEventListener("click", onClickCloseModalButton);
 }
 
+
 function afficherPhoto() {
   const input = document.getElementById("originalFileName");
   const imageCarousel = document.getElementById("image-carousel");

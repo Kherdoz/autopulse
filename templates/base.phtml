@@ -24,12 +24,39 @@
             <nav>
                 <!-- MENU EN MODE CONNECTE -->
                 <?php if (isConnected()) : ?>
-                    <a href="<?= buildUrl('logout'); ?>" class=" btn " onclick="ouvrirModal()">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <p class="spaceNav">
-                            Déconnexion
-                        </p>
-                    </a>
+                    <!-- Utilisateur avec sous-menu -->
+                    <div class="relative group">
+                        <details class="group hover:bg-gray-100 hover:text-gray-700 rounded-lg px-4 py-2">
+                            <summary class="group flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span class="text-sm font-medium">Bonjour <?= $_SESSION['user']['firstname'] . ' ' . $_SESSION['user']['lastname']; ?></span>
+
+                                </div>
+
+                                <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <ul class="mt-2 space-y-1 px-4">
+                                <li>
+                                    <a href="<?= buildUrl('logout'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Déconnexion</a>
+                                </li>
+                                <li>
+                                    <a href="<?= buildUrl('notice'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Mes annonces</a>
+                                </li>
+                                <li>
+                                    <a href="<?= buildUrl('placeAnAd'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()"></a>
+                                </li>
+                            </ul>
+                        </details>
+                    </div>
+
                 <?php else : ?>
                     <!-- MENU EN MODE NON CONNECTE -->
                     <a href="/" class="btn">
@@ -55,6 +82,7 @@
             </nav>
         </div>
     </header>
+
     <main>
         <?php include '../templates/' . $template . '.phtml'; ?>
     </main>

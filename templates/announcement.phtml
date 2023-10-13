@@ -1,0 +1,24 @@
+<div class="container  mx-auto px-4">
+    <h1 class="text-3xl  font-semibold mb-4">Le marché du véhicule actuel</h1>
+    <div class="flex flex-wrap -mx-4">
+        <?php foreach ($cars as $car) : ?>
+        <div class="w-96 px-4 mb-4">
+            <div class="bg-white border rounded-lg shadow-md min-h-full">
+                <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de l'annonce" class="w-full h-64 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <div class="flex justify-between">
+                        <h2 class="text-2xl font-semibold"><?= strtoupper(htmlspecialchars($car->make)) ?></h2>
+                        <p class="text-xl font-semibold text-gray-600"><?= htmlspecialchars($car->price) ?> €</p>
+                    </div>
+                    <div class="flex  mx-5 text-gray-600">
+                        <p><?= htmlspecialchars($car->fuel) ?></p>
+                        <p class="mx-2"><?= htmlspecialchars($car->years) ?> année</p>
+                        <p><?= htmlspecialchars($car->mileage) ?> km</p>
+                    </div>
+                    <p class="text-gray-600"><?= htmlspecialchars($car->accounte) ?></p>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>

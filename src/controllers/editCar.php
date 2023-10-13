@@ -36,25 +36,33 @@ function editCar(int $carId)
         //todo
         // Si aucune erreur n'est détectée...
         if (empty($errors)) {
+            if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
+                // Étape 1 : Supprimer l'ancienne image
+                if (!empty($originalFileName)) {
+                    $oldImagePath = "./images/" . $originalFileName;
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath); // Supprimer l'ancienne image
+                    }
+                }
         
-            if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {$
-                //etape 1. clean l'ancienne image pour ajouter la nouvelle .
+                // Étape 2 : Déplacer la nouvelle image
                 $tempFilePath = $_FILES['newImage']['tmp_name'];
                 $originalFileName = $_FILES['newImage']['name'];
-
-                move_uploaded_file($tempFilePath,"./images/".$originalFileName);
+        
+                move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
             }
-
+        
             $carModel = new CarModel();
             $carModel->updateCar($carId, $make, $accounte, $fuel, $mileage, $years, $price, $originalFileName);
-
+        
             // Message flash
             addFlash('Votre annonce de véhicule a bien été mise à jour');
-
-            // // Redirection vers une page de confirmation ou de gestion des annonces
+        
+            // Redirection vers une page de confirmation ou de gestion des annonces
             header('Location: ' . buildUrl('notice'));
             exit;
         }
+   
     }
     // Affichage : inclusion du template
     $template = 'editCar';

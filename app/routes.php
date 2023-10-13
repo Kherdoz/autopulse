@@ -49,7 +49,11 @@ $routes = [
         'path' => '/editCar',
         'controller' => 'editCar.php'
     ],
-   
+
+    'announcement' => [
+        'path' => '/announcement',
+        'controller' => 'announcement.php'
+    ],
 ];
 
 return $routes;
