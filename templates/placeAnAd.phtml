@@ -1,63 +1,42 @@
 <?php if ($flashMessage) : ?>
-    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md">
-        <?= htmlspecialchars($flashMessage); ?>
-    </div>
+    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
+    <?= htmlspecialchars($flashMessage); ?>
+</div>
 <?php endif; ?>
 
 
-<div class="bloc">
-    <section class="containerV">
-        <div class="position">
-            <div class="boxPl">
-                <p>Vendez votre vehicule</p>
-            </div>
-            <div class="boxPlace">
-                <p class="ongletP">Profils</p>
-                <div class="ml">
-                    <a href="/" class="textN">Informations</a>
-                    <a href="<?= buildUrl('notice'); ?>" class="textN"> Mes Annonces</a>
-                    <a href="<?= buildUrl('logout'); ?>">Deconnexion</a>
-                </div>
-            </div>
-            <p class="onglet">Messagerie</p>
-            <div class="boxPlace">
-                <a href="/" class="ml">Nouveaux messages</a>
-            </div>
-            <p class="onglet">Documents à fournir</p>
-            <div class="boxPlaceA space-y-1 ">
-                <p class="textPlacA">Controle Technique :</p>
-                <input type="file" name="file" id="file" accept=".pdf, .doc, .docx" class="border rounded-md p-1">
-                <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md">
-            </div>
 
-            <div class="boxPlaceA space-y-2 mt-1 ">
-                <p class="textPlacA ">Carte grise :</p>
-                <input type="file" name="file" id="file" accept=".pdf, .doc, .docx" class="border rounded-md p-1">
-                <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
-            </div>
+<div class="flex items-center justify-center text-justify">
+    <div class="bg-color">
+        <!-- <p class="text-lg bg-color font-semibold text-gray-700">Vendez votre véhicule</p> -->
+    </div>
+    <img src="<?= asset('/img/checklist.png') ?>" class="iconePlace" alt="logo">
+    <p class="flxT">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
+</div>
 
 
+
+     <div class="lg:flex">
+
+        <div class="lg:w-1/3 w-full lg:order-1 order-2 p-4  rounded-md  mb-4 lg:mb-0">
+            <!-- Contenu de l'image-carousel -->
+            <div id="image-carousel">
         </div>
+    </div> 
 
-    </section>
-    <aside class="cv">
-        <div class="blocT">
-            <img src="<?= asset('/img/checklist.png') ?>" width="150px" height="150px" alt="logo">
-            <p class="flxT">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
-        </div>
-        <div class="blocAnAd">
-        <div class="containerP ">
-    <form class="formPaD" enctype="multipart/form-data" method="POST" action="">
-        <div class="space-y-4">
-            <div class="flex items-center">
-                <div class="w-1/2 pr-2">
+<div class="container mx-auto">
+    <!-- Section de droite (formulaire) -->
+    <div class="lg:w-3/4 w-full p-4 bg-white rounded-md shadow-md mt-4 lg:mt-0 text-center">
+        <form class="space-y-4" enctype="multipart/form-data" method="POST" action="">
+            <div class="flex flex-wrap -mx-2">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <label for="originalFileName" class="block text-center font-semibold">Photo :</label>
                     <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required class="w-full h-12 border rounded-md p-2">
                     <?php if (isset($errors['originalFileName'])) : ?>
                         <p class="text-red-500"><?= htmlspecialchars($errors['originalFileName']); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="w-1/4 pr-2">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <label for="fuel" class="block text-center font-semibold">Carburant :</label>
                     <select id="fuel" name="fuel" required class="w-full h-12 border rounded-md p-2">
                         <option value="essence">Essence</option>
@@ -69,30 +48,28 @@
                         <p class="text-red-500"><?= htmlspecialchars($errors['fuel']); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="w-1/4">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <label for="price" class="block text-center font-semibold">Prix :</label>
                     <input type="number" class="w-full h-12 border rounded-md p-2" id="price" name="price" required>
                     <?php if (isset($errors['price'])) : ?>
                         <p class="text-red-500"><?= htmlspecialchars($errors['price']); ?></p>
                     <?php endif; ?>
                 </div>
-            </div>
-            <div class="flex items-center">
-                <div class="w-1/3 pr-2">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <label for="make" class="block text-center font-semibold">Marque :</label>
                     <input type="text" class="w-full h-12 border rounded-md p-2" id="make" name="make" required>
                     <?php if (isset($errors['make'])) : ?>
                         <p class="text-red-500"><?= htmlspecialchars($errors['make']); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="w-1/3 pr-2">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <label for="years" class="block text-center font-semibold">Année :</label>
                     <input type="number" class="w-full h-12 border rounded-md p-2" id="years" name="years" min="1990" max="2100" required>
                     <?php if (isset($errors['years'])) : ?>
                         <p class="text-red-500"><?= htmlspecialchars($errors['years']); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="w-1/3">
+                <div class="w-full md:w-1/2 px-2">
                     <label for="mileage" class="block text-center font-semibold">Kilométrage :</label>
                     <input type="number" class="w-full h-12 border rounded-md p-2" id="mileage" name="mileage" required>
                     <?php if (isset($errors['mileage'])) : ?>
@@ -110,14 +87,6 @@
             <div class="text-center">
                 <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-md w-full">
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-
-                <!-- Carrousel pour afficher les photos (limité à 4) -->
-            </div>
-            <div id="image-carousel">
-            </div>
-    </aside>
-</div>

@@ -28,6 +28,7 @@ $price = '';
 $originalFileName = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
     $make = trim($_POST['make']);
     $fuel = trim($_POST['fuel']);
     $mileage = trim($_POST['mileage']);

@@ -1,54 +1,55 @@
 <?php if ($flashMessage) : ?>
-    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md">
-        <?= htmlspecialchars($flashMessage); ?>
-    </div>
+    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
+    <?= htmlspecialchars($flashMessage); ?>
+</div>
 <?php endif; ?>
 
+<!-- Contenue  -->
 <form action="/editCar" method="GET" enctype="multipart/form-data">
-    <div class="bg-gray-100 flex items-center justify-center h-screen">
-        <div class="bg-white p-6 rounded-lg shadow-md">
+    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-screen-xl">
             <h2 class="text-2xl font-semibold mb-4">Liste de voitures</h2>
             <div class="overflow-x-auto">
                 <?php if (empty($cars)) : ?>
                     <p class="text-gray-500 text-center">Vous n'avez aucune annonce.</p>
                 <?php else : ?>
-                    <table class="min-w-full border border-gray-300">
-                        <thead>
-                            <tr>
-                                <th class="p-2">Photo</th>
-                                <th class="p-2">Marque</th>
-                                <th class="p-2">Carburant</th>
-                                <th class="p-2">Kilométrage</th>
-                                <th class="p-2">Année</th>
-                                <th class="p-2">Prix</th>
-                                <th class="p-2">Description</th>
-                                <th class="p-2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($cars as $car) : ?>
+                    <div class="table-container">
+                        <table class="min-w-full border border-gray-300">
+                            <thead>
                                 <tr>
-                                    <td class="p-2">
-                                        <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de la voiture" width="100" height="100">
-                                    </td>
-
-                                    <td class="p-2"><?= htmlspecialchars($car->make) ?></td>
-                                    <td class="p-2"><?= htmlspecialchars($car->fuel) ?></td>
-                                    <td class="p-2"><?= htmlspecialchars($car->mileage) ?></td>
-                                    <td class="p-2"><?= htmlspecialchars($car->years) ?></td>
-                                    <td class="p-2"><?= htmlspecialchars($car->price) ?></td>
-                                    <td class="p-2"><?= htmlspecialchars($car->accounte) ?></td>
-                                    <td class="p-2 space-x-2">
-                                        <!-- Bouton pour éditer -->
-                                        <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover-bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Éditer</button>
-
-                                        <!-- Bouton pour supprimer -->
-                                        <button type="submit" name="deleteCar" value="<?= $car->id ?>" class="bg-red-500 hover-bg-red-700 text-white font-semibold py-2 px-4 rounded-full">Supprimer</button>
-                                    </td>
+                                    <th class="p-2">Photo</th>
+                                    <th class="p-2">Marque</th>
+                                    <th class="p-2">Carburant</th>
+                                    <th class="p-2">Kilométrage</th>
+                                    <th class="p-2">Année</th>
+                                    <th class="p-2">Prix</th>
+                                    <th class="p-2">Description</th>
+                                    <th class="p-2">Actions</th>
                                 </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($cars as $car) : ?>
+                                    <tr>
+                                        <td class="p-2">
+                                            <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de la voiture" class="w-48 h-auto md:w-64 lg:w-80 mx-auto block">
+                                            <!-- Augmentez la largeur de l'image et utilisez "mx-auto block" pour centrer l'image horizontalement -->
+                                        </td>
+                                        <td class="p-2"><?= htmlspecialchars($car->make) ?></td>
+                                        <td class="p-2"><?= htmlspecialchars($car->fuel) ?></td>
+                                        <td class="p-2"><?= htmlspecialchars($car->mileage) ?></td>
+                                        <td class="p-2"><?= htmlspecialchars($car->years) ?></td>
+                                        <td class="p-2"><?= htmlspecialchars($car->price) ?></td>
+                                        <td class="p-2"><?= htmlspecialchars($car->accounte) ?></td>
+                                        <td class="p-2 space-x-2 text-center">
+                                            <!-- Centrez les boutons "Éditer" et "Supprimer" -->
+                                            <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Éditer</button>
+                                            <button type="submit" name="deleteCar" value="<?= $car->id ?>" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 px-4 rounded-full">Supprimer</button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

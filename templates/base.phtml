@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +17,8 @@
 <body>
     <header>
         <div class="containerHeader">
-            <a href="/" class="logo">
-                <img src="<?= asset('./img/Logo-2.jpg') ?>" width="550px" height="150px" alt="logo">
+            <a href="/" >
+                <img src="<?= asset('./img/Logo-2.jpg') ?>"  class="logo" alt="logo">
             </a>
             <nav>
                 <!-- MENU EN MODE CONNECTE -->
@@ -32,10 +31,8 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
-                                    <span class="text-sm font-medium">Bonjour <?= $_SESSION['user']['firstname'] . ' ' . $_SESSION['user']['lastname']; ?></span>
-
+                                    <span class="text-sm font-medium"> <?= $_SESSION['user']['firstname'] . ' ' . $_SESSION['user']['lastname']; ?></span>
                                 </div>
-
                                 <span class="shrink-0 transition duration-300 group-open:-rotate-180">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -48,11 +45,14 @@
                                     <a href="<?= buildUrl('logout'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Déconnexion</a>
                                 </li>
                                 <li>
-                                    <a href="<?= buildUrl('notice'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Mes annonces</a>
+                                <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" data-target="profil">Profils</a>
                                 </li>
                                 <li>
-                                    <a href="<?= buildUrl('placeAnAd'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()"></a>
+                                <!-- <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" data-target="messagerie">Messagerie</a> -->
                                 </li>
+                                <li>
+                                <a href="<?= buildUrl('notice'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Mes annonces</a>
+                                    
                             </ul>
                         </details>
                     </div>
@@ -107,18 +107,18 @@
             </div>
         </div>
         </div>
-        <!-- <div class="footerBotton">
+        <div class="footerBotton">
             <div class="footerIcons">
-                <a href="/" class="logoFooter">
+                <!-- <a href="/" class="logoFooter">
                     <img src="<?= asset('./img/facebook.png') ?>" width="50px" height="50px" alt="logo">
-                </a>
+                </a> -->
                 <a href="/" class="logoFooter">
                     <img src="<?= asset('./img/instagram.png') ?>" width="50px" height="50px" alt="logo">
                 </a>
             </div>
             <div class="footerEnd">
                 <p>@autopulse</p>
-            </div> -->
+            </div>
     </footer>
 
 </body>

@@ -1,38 +1,35 @@
-
-
 <!-- Affichage du message flash le cas échéant -->
 <?php if ($flashMessage) : ?>
-    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md">
-        <?= htmlspecialchars($flashMessage); ?>
-    </div>
+    <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
+    <?= htmlspecialchars($flashMessage); ?>
+</div>
 <?php endif; ?>
-
 
 <h1 class="text-3xl mt-6">La voiture parfaite, à portée de main, entre particuliers.</h1>
     <div class="cch">
         <div class="container-carrousel">
             <div>
                 <div class="content">
-                    <h2>Reflextion</h2>
-                    <span>vous cherchez un vehicule .?</span>
+                    <h2>Réflexion</h2>
+                    <span class="textCarrousel">Cherchez-vous un véhicule ?</span>
                 </div>
             </div>
             <div>
                 <div class="content">
-                    <h2>Discution</h2>
-                    <span>discuté avec de nombreux vendeur et vendeuse</span>
+                    <h2>Discussion.</h2>
+                    <span class="textCarrousel">Discuté avec de nombreux vendeurs et vendeuses</span>
                 </div>
             </div>
             <div>
                 <div class="content">
                     <h2>Fiabilité</h2>
-                    <span>faite appel a nos insepcteur pour garantir la fiabilité</span>
+                    <span class="textCarrousel">Contactez nos inspecteurs pour assurer la fiabilité</span>
                 </div>
             </div>
             <div>
                 <div class="content">
                     <h2>Finalisé</h2>
-                    <span>reparté avec votre vehicule </span>
+                    <span class="textCarrousel">Repartez avec votre véhicule</span>
                 </div>
             </div>
         </div>
