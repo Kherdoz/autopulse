@@ -1,7 +1,19 @@
-<div class="container  mx-auto px-4">
-    <h1 class="text-3xl  font-semibold mb-4">Le marché du véhicule actuel</h1>
+<nav class="bgColorNav p-4">
+    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+            <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicule</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+            <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
+<!-- nav -->
+
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-semibold mb-4">Le marché du véhicule actuel</h1>
     <div class="flex flex-wrap -mx-4">
-        <?php foreach ($cars as $car) : ?>
+        <?php foreach (array_slice($cars, $start, $perPage) as $car) : ?>
         <div class="w-96 px-4 mb-4">
             <div class="bg-white border rounded-lg shadow-md min-h-full">
                 <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de l'annonce" class="w-full h-64 object-cover rounded-t-lg">
@@ -10,15 +22,26 @@
                         <h2 class="text-2xl font-semibold"><?= strtoupper(htmlspecialchars($car->make)) ?></h2>
                         <p class="text-xl font-semibold text-gray-600"><?= htmlspecialchars($car->price) ?> €</p>
                     </div>
-                    <div class="flex  mx-5 text-gray-600">
+                    <div class="flex mx-5 text-gray-600">
                         <p><?= htmlspecialchars($car->fuel) ?></p>
                         <p class="mx-2"><?= htmlspecialchars($car->years) ?> année</p>
                         <p><?= htmlspecialchars($car->mileage) ?> km</p>
                     </div>
                     <p class="text-gray-600"><?= htmlspecialchars($car->accounte) ?></p>
+                    
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
+    </div>
+    <div class="flex justify-center mt-4">
+        <!-- Pagination -->
+        <ul class="flex list-none">
+            <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+            <li class="mr-2">
+                <a href="?page=<?= $i ?>" class="px-3 py-2 <?= $i == $page ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700' ?> rounded"><?= $i ?></a>
+            </li>
+            <?php endfor; ?>
+        </ul>
     </div>
 </div>

@@ -5,12 +5,24 @@ margin: 0;
 padding: 0;
 font-family: 'Inclusive Sans', sans-serif;
 }
-/* Point de rupture pour les mobiles (jusqu'à 320px) */
+
+.bgColorNav{
+background-color: rgb(238, 150, 75);
+}
+.colorsTextNav{
+  color: rgb(13, 59, 102);
+}
+/* Point de rupture pour les mobiles  */
 @media screen and (max-width: 360px) {
   /* Header */
   .logo {
     /* height: 120px; */
     width: auto;
+}
+h1 {
+  margin: 20px;
+  text-align: center;
+  color: rgb(13, 59, 102);
 }
 .containerHeader {
   display: flex;
@@ -59,6 +71,12 @@ font-family: 'Inclusive Sans', sans-serif;
   /* Carrousel Body*/
   .textCarrousel{
     font-size: 1rem;
+  }
+  .cch{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
   }
 .container-carrousel {
   margin-top: 55px;
@@ -320,6 +338,11 @@ footer {
 
 @media (min-width: 361px) and (max-width: 836px) {
   /* Header */
+  h1 {
+    margin: 20px;
+    text-align: center;
+    color: rgb(13, 59, 102);
+}
   .logo {
     /* height: 120px; */
     width: auto;
@@ -640,8 +663,13 @@ footer {
   }
 }
 
-/* Point de rupture pour les tablettes (de 321px à 768px) */
+/* Point de rupture pour les tablettes  */
 @media (min-width: 837px) and (max-width: 1240px) {
+  h1 {
+    margin: 20px;
+    text-align: center;
+    color: rgb(13, 59, 102);
+}
   .containerHeader {
     display: flex;
     flex-direction: row;
@@ -859,6 +887,11 @@ footer {
 
 /* Point de rupture pour les ordinateurs de bureau (à partir de 1224px) */
 @media (min-width: 1240px)  {
+  h1 {
+    margin: 20px;
+    text-align: center;
+    color: rgb(13, 59, 102);
+}
   .containerHeader {
     display: flex;
     flex-direction: row;
@@ -1065,17 +1098,9 @@ padding: 10px;
 margin: 10px;
 }
 
-
-
-h1{
-margin: 20px;
-text-align: center;
-color: rgb(13, 59, 102);  
-}
 h2{
 color: rgb(13, 59, 102);  
 }
-
 
 .textb{
 color: rgb(13, 59, 102);  
@@ -1099,7 +1124,7 @@ border-width: 0;
 box-shadow: none;
 box-sizing: border-box;
 color: #FFFFFF;
- display: inline-flex;
+display: inline-flex;
 font-family: CircularStd,sans-serif;
 font-size: 1rem;
 height: auto;
@@ -1121,7 +1146,7 @@ white-space: nowrap;
 .logo {
   height: 150px;
   width:500px;
-} */
+} 
 /* Carrousel */
 
   /*  boutton */
@@ -1367,10 +1392,7 @@ border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-text-align: center;
-color: #333;
-}
+
 
 .formPaD {
 height: 500px;

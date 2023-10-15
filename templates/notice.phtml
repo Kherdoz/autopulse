@@ -4,9 +4,20 @@
 </div>
 <?php endif; ?>
 
+<nav class="bgColorNav p-4">
+    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+            <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicule</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+            <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
+
 <!-- Contenue  -->
 <form action="/editCar" method="GET" enctype="multipart/form-data">
-    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class=" min-h-screen flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-screen-xl">
             <h2 class="text-2xl font-semibold mb-4">Liste de voitures</h2>
             <div class="overflow-x-auto">
@@ -42,8 +53,8 @@
                                         <td class="p-2"><?= htmlspecialchars($car->accounte) ?></td>
                                         <td class="p-2 space-x-2 text-center">
                                             <!-- Centrez les boutons "Éditer" et "Supprimer" -->
-                                            <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Éditer</button>
-                                            <button type="submit" name="deleteCar" value="<?= $car->id ?>" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 px-4 rounded-full">Supprimer</button>
+                                            <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 w-32 px-4 mb-2 rounded">Modifier</button>
+                                            <button type="submit" name="deleteCar" value="<?= $car->id ?>" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 w-32 px-4 rounded">Supprimer</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

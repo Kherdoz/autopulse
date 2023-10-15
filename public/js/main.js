@@ -53,6 +53,7 @@ function afficherPhoto() {
     imageCarousel.appendChild(imageContainer);
   }
 }
+
 // code principal
 const closeModalsButtons = document.querySelectorAll(".modal-container .close");
 for (const closeModalButton of closeModalsButtons) {

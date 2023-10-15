@@ -58,7 +58,7 @@ function editCar(int $carId)
                 $originalFileName = $_FILES['newImage']['name'];
                 
                 // Construire le chemin de l'ancienne image
-                $oldImagePath = "images/" . $car['originalFileName'];
+                $oldImagePath = "./images/" . $car['originalFileName'];
                 // Vérifier si le fichier de l'ancienne image existe
                     if (file_exists($oldImagePath)) {
                         unlink($oldImagePath); // Supprimer l'ancienne image
@@ -82,8 +82,8 @@ function editCar(int $carId)
             addFlash('Votre annonce de véhicule a bien été mise à jour');
 
             // Redirection vers une page de confirmation ou de gestion des annonces
-            // header('Location: ' . buildUrl('notice'));
-            // exit;
+            header('Location: ' . buildUrl('notice'));
+            exit;
         }
     }
     // Affichage : inclusion du template

@@ -1,12 +1,30 @@
 <?php if ($flashMessage) : ?>
     <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
-    <?= htmlspecialchars($flashMessage); ?>
-</div>
+        <?= htmlspecialchars($flashMessage); ?>
+    </div>
 <?php endif; ?>
 
+<!-- Assurez-vous d'inclure le lien vers la bibliothèque Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+<!-- Utilisez la classe d'icône de Font Awesome pour l'enveloppe -->
+<nav class="bgColorNav p-4">
+    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+            <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicule</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+            <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
 
 
-<div class="flex items-center justify-center text-justify">
+
+
+
+
+<div class="flex items-center justify-center text-justify mt-6 mb-8">
     <div class="bg-color">
         <!-- <p class="text-lg bg-color font-semibold text-gray-700">Vendez votre véhicule</p> -->
     </div>
@@ -16,77 +34,76 @@
 
 
 
-     <div class="lg:flex">
+<div class="lg:flex">
 
-        <div class="lg:w-1/3 w-full lg:order-1 order-2 p-4  rounded-md  mb-4 lg:mb-0">
-            <!-- Contenu de l'image-carousel -->
-            <div id="image-carousel">
+    <div class="lg:w-1/3 w-full lg:order-1 order-2 p-4  rounded-md  mb-4 lg:mb-0">
+        <!-- Contenu de l'image-carousel -->
+        <div id="image-carousel">
         </div>
-    </div> 
-
-<div class="container mx-auto">
-    <!-- Section de droite (formulaire) -->
-    <div class="lg:w-3/4 w-full p-4 bg-white rounded-md shadow-md mt-4 lg:mt-0 text-center">
-        <form class="space-y-4" enctype="multipart/form-data" method="POST" action="">
-            <div class="flex flex-wrap -mx-2">
-                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <label for="originalFileName" class="block text-center font-semibold">Photo :</label>
-                    <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required class="w-full h-12 border rounded-md p-2">
-                    <?php if (isset($errors['originalFileName'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['originalFileName']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <label for="fuel" class="block text-center font-semibold">Carburant :</label>
-                    <select id="fuel" name="fuel" required class="w-full h-12 border rounded-md p-2">
-                        <option value="essence">Essence</option>
-                        <option value="diesel">Diesel</option>
-                        <option value="hybride">Hybride</option>
-                        <option value="electrique">Électrique</option>
-                    </select>
-                    <?php if (isset($errors['fuel'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['fuel']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <label for="price" class="block text-center font-semibold">Prix :</label>
-                    <input type="number" class="w-full h-12 border rounded-md p-2" id="price" name="price" required>
-                    <?php if (isset($errors['price'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['price']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <label for="make" class="block text-center font-semibold">Marque :</label>
-                    <input type="text" class="w-full h-12 border rounded-md p-2" id="make" name="make" required>
-                    <?php if (isset($errors['make'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['make']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                    <label for="years" class="block text-center font-semibold">Année :</label>
-                    <input type="number" class="w-full h-12 border rounded-md p-2" id="years" name="years" min="1990" max="2100" required>
-                    <?php if (isset($errors['years'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['years']); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="w-full md:w-1/2 px-2">
-                    <label for="mileage" class="block text-center font-semibold">Kilométrage :</label>
-                    <input type="number" class="w-full h-12 border rounded-md p-2" id="mileage" name="mileage" required>
-                    <?php if (isset($errors['mileage'])) : ?>
-                        <p class="text-red-500"><?= htmlspecialchars($errors['mileage']); ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="text-center">
-                <label for="accounte" class="block font-semibold">Description :</label>
-                <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-full border rounded-md p-2"></textarea>
-                <?php if (isset($errors['accounte'])) : ?>
-                    <p class="text-red-500"><?= htmlspecialchars($errors['accounte']); ?></p>
-                <?php endif; ?>
-            </div>
-            <div class="text-center">
-                <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-md w-full">
-            </div>
-        </form>
     </div>
 
+    <div class="container mx-auto ">
+        <!-- Section de droite (formulaire) -->
+        <div class="lg:w-3/4 w-full p-4 bg-white rounded-md shadow-md mt-4 lg:mt-0 text-center">
+            <form class="space-y-4" enctype="multipart/form-data" method="POST" action="">
+                <div class="flex flex-wrap -mx-2">
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                        <label for="originalFileName" class="block text-center font-semibold">Photo :</label>
+                        <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" required class="w-full h-12 border rounded-md p-2">
+                        <?php if (isset($errors['originalFileName'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['originalFileName']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                        <label for="fuel" class="block text-center font-semibold">Carburant :</label>
+                        <select id="fuel" name="fuel" required class="w-full h-12 border rounded-md p-2">
+                            <option value="essence">Essence</option>
+                            <option value="diesel">Diesel</option>
+                            <option value="hybride">Hybride</option>
+                            <option value="electrique">Électrique</option>
+                        </select>
+                        <?php if (isset($errors['fuel'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['fuel']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                        <label for="price" class="block text-center font-semibold">Prix :</label>
+                        <input type="number" class="w-full h-12 border rounded-md p-2" id="price" name="price" required>
+                        <?php if (isset($errors['price'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['price']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                        <label for="make" class="block text-center font-semibold">Marque :</label>
+                        <input type="text" class="w-full h-12 border rounded-md p-2" id="make" name="make" required>
+                        <?php if (isset($errors['make'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['make']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                        <label for="years" class="block text-center font-semibold">Année :</label>
+                        <input type="number" class="w-full h-12 border rounded-md p-2" id="years" name="years" min="1990" max="2100" required>
+                        <?php if (isset($errors['years'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['years']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2">
+                        <label for="mileage" class="block text-center font-semibold">Kilométrage :</label>
+                        <input type="number" class="w-full h-12 border rounded-md p-2" id="mileage" name="mileage" required>
+                        <?php if (isset($errors['mileage'])) : ?>
+                            <p class="text-red-500"><?= htmlspecialchars($errors['mileage']); ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <label for="accounte" class="block font-semibold">Description :</label>
+                    <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-full border rounded-md p-2"></textarea>
+                    <?php if (isset($errors['accounte'])) : ?>
+                        <p class="text-red-500"><?= htmlspecialchars($errors['accounte']); ?></p>
+                    <?php endif; ?>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Envoyer" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-md w-full">
+                </div>
+            </form>
+        </div>
