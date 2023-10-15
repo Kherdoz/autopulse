@@ -9,14 +9,6 @@ if (!isConnected()) {
 
 $flashMessage = fetchFlash();
 
-if (!empty($_FILES)) {
-    $originalFileName = $_FILES['originalFileName'];
-    $ext = strtolower(substr($originalFileName['name'], -3));
-    $allow_ext = ["jpg", 'png'];
-    if (in_array($ext, $allow_ext)) {
-        move_uploaded_file($originalFileName['tmp_name'], "./images/" . $originalFileName['name']);
-    }
-}
 
 $errors = [];
 $make = '';
@@ -64,9 +56,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_numeric($mileage) || $mileage <= 0) {
         $errors['mileage'] = 'Le champ "kilométrage" doit être un nombre positif';
     }
+    $originalFileName = "";
+    if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
+        $originalFileName = $_FILES['originalFileName']['name'];
+        // Obtenir la taille du fichier
+        $filesize = filesize($_FILES['originalFileName']['tmp_name']);
 
+        // Vérifier si la taille du fichier dépasse la limite
+        if ($filesize > MAX_UPLOAD_SIZE) {
+            $errors["originalFileName"] = 'Votre fichier excède 500 Ko (limite de taille autorisée).';
+        }
+        // verifier le type de fichier 
+        $filetype = getFileMimeType($_FILES['originalFileName']['tmp_name']);
+        if(!in_array($filetype, ALLOWED_MIME_TYPES_IMAGE) ){
+            $errors["originalFileName"] = 'le fichier doit etre de type : jpeg, gif, webp, png.';
+        }
+
+    }
 
     if (empty($errors)) {
+
+        if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
+                
+            // Si la taille est valide, supprimer l'ancienne image
+            $originalFileName = $_FILES['originalFileName']['name'];
+            
+            // Déplacer la nouvelle image si elle est valide
+        
+                $tempFilePath = $_FILES['originalFileName']['tmp_name'];
+                $extension = pathinfo($_FILES['originalFileName']['name'], PATHINFO_EXTENSION);
+                $basename = pathinfo($_FILES['originalFileName']['name'], PATHINFO_FILENAME);
+                $basename = slugify($basename);
+                $originalFileName = $basename .sha1(uniqid(rand(),true)) . '.' . $extension;
+                // Déplacer le fichier temporaire vers le répertoire des images
+                move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
+        }
+       
+
+
+
         $carModel = new CarModel(); // Instanciez d'abord la classe CarModel
 
        // Ajoutez cette ligne pour obtenir l'identifiant de l'utilisateur connecté

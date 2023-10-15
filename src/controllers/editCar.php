@@ -2,6 +2,7 @@
 
 use App\Model\CarModel;
 
+
 // function edition
 function editCar(int $carId)
 {
@@ -29,40 +30,61 @@ function editCar(int $carId)
         // Convertir la valeur de price en entier
         $price = isset($_POST['price']) ? (int)$_POST['price'] : 0;
 
-        $originalFileName = isset($_FILES['newImage']['name']) ? $_FILES['newImage']['name'] : '';
-    
-       
+        $originalFileName = "";
+        if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
+            $originalFileName = $_FILES['newImage']['name'];
+            // Obtenir la taille du fichier
+            $filesize = filesize($_FILES['newImage']['tmp_name']);
+
+            // Vérifier si la taille du fichier dépasse la limite
+            if ($filesize > MAX_UPLOAD_SIZE) {
+                $errors["newImage"] = 'Votre fichier excède 500 Ko (limite de taille autorisée).';
+            }
+            // verifier le type de fichier 
+            $filetype = getFileMimeType($_FILES['newImage']['tmp_name']);
+            if(!in_array($filetype, ALLOWED_MIME_TYPES_IMAGE) ){
+                $errors["newImage"] = 'le fichier doit etre de type : jpeg, gif, webp, png.';
+            }
+
+        }
         // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
         //todo
         // Si aucune erreur n'est détectée...
+        
         if (empty($errors)) {
             if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
-                // Étape 1 : Supprimer l'ancienne image
-                if (!empty($originalFileName)) {
-                    $oldImagePath = "./images/" . $originalFileName;
+                
+                // Si la taille est valide, supprimer l'ancienne image
+                $originalFileName = $_FILES['newImage']['name'];
+                
+                // Construire le chemin de l'ancienne image
+                $oldImagePath = "images/" . $car['originalFileName'];
+                // Vérifier si le fichier de l'ancienne image existe
                     if (file_exists($oldImagePath)) {
                         unlink($oldImagePath); // Supprimer l'ancienne image
                     }
-                }
-        
-                // Étape 2 : Déplacer la nouvelle image
-                $tempFilePath = $_FILES['newImage']['tmp_name'];
-                $originalFileName = $_FILES['newImage']['name'];
-        
-                move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
+
+                // Déplacer la nouvelle image si elle est valide
+            
+                    $tempFilePath = $_FILES['newImage']['tmp_name'];
+                    $extension = pathinfo($_FILES['newImage']['name'], PATHINFO_EXTENSION);
+                    $basename = pathinfo($_FILES['newImage']['name'], PATHINFO_FILENAME);
+                    $basename = slugify($basename);
+                    $originalFileName = $basename .sha1(uniqid(rand(),true)) . '.' . $extension;
+                    // Déplacer le fichier temporaire vers le répertoire des images
+                    move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
             }
-        
+
             $carModel = new CarModel();
             $carModel->updateCar($carId, $make, $accounte, $fuel, $mileage, $years, $price, $originalFileName);
-        
+
             // Message flash
             addFlash('Votre annonce de véhicule a bien été mise à jour');
-        
+
             // Redirection vers une page de confirmation ou de gestion des annonces
-            header('Location: ' . buildUrl('notice'));
-            exit;
+            // header('Location: ' . buildUrl('notice'));
+            // exit;
         }
-   
     }
     // Affichage : inclusion du template
     $template = 'editCar';
@@ -73,9 +95,16 @@ function editCar(int $carId)
 function deleteCar(int $carId)
 {
 
-    // Suppression de la voiture en utilisant l'ID
     $carModel = new CarModel();
+    $car = $carModel->getCarById($carId);
+    
+    $oldImagePath = "images/" . $car['originalFileName'];
+    // Vérifier si le fichier de l'ancienne image existe
+    if (file_exists($oldImagePath)) {
+        unlink($oldImagePath); // Supprimer l'ancienne image
+    }
     $carModel->deleteCar($carId);
+  
 
     // Message flash
     addFlash('L\'annonce de véhicule a bien été supprimée');

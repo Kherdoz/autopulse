@@ -4,23 +4,17 @@ function onClickCloseModalButton(event) {
   modal.classList.add("hidden");
 }
 
-const closeModalsButtons = document.querySelectorAll(".modal-container .close");
-for (const closeModalButton of closeModalsButtons) {
-  closeModalButton.addEventListener("click", onClickCloseModalButton);
-}
 // permet que le flashmessage reste que 4 seconde
-const flashMessage = document.querySelector('.flash-message');
+function hideFlashMessage(delay){
+  const flashMessage = document.querySelector('.flash-message');
 
-if (flashMessage) {
-  // Attendez 4 secondes (4000 millisecondes) avant de masquer le message flash
-  setTimeout(function () {
-    flashMessage.style.display = 'none';
-  }, 4000);
+  if (flashMessage) {
+    // Attendez 4 secondes (4000 millisecondes) avant de masquer le message flash
+    setTimeout(function () {
+      flashMessage.style.display = 'none';
+    }, delay);
+  }
 }
-
-
-
-
 
 // affiche les photo
 function afficherPhoto() {
@@ -59,3 +53,9 @@ function afficherPhoto() {
     imageCarousel.appendChild(imageContainer);
   }
 }
+// code principal
+const closeModalsButtons = document.querySelectorAll(".modal-container .close");
+for (const closeModalButton of closeModalsButtons) {
+  closeModalButton.addEventListener("click", onClickCloseModalButton);
+}
+ hideFlashMessage(4000);

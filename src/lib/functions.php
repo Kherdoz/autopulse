@@ -141,4 +141,53 @@ function asset(string $resourcePath): string
     // Retournez l'URL construite
     return $url;
 };
+function slugify(string $text) :string
+{
+    // Supprime les balises HTML
+    $text = strip_tags($text);
 
+    // Remplace les caractères non alphabétiques ou numériques par des tirets
+    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+    // Translittération
+    setlocale(LC_ALL, 'fr_FR.utf8');
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // Supprime les caractères non désirés
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    // Supprime les tirets aux extrémités
+    $text = trim($text, '-');
+
+    // Supprime les tirets répétés
+    $text = preg_replace('~-+~', '-', $text);
+
+    // Convertit en minuscules
+    $text = strtolower($text);
+
+    // Vérifie si le texte est vide et renvoie "n-a" s'il l'est
+    if (empty($text)) {
+        return 'n-a';
+    }
+
+    // Renvoie le résultat
+    return $text;
+}
+
+function getFileMimeType(string $filePath): string
+{
+  // Create a Fileinfo resource
+  $finfo = finfo_open(FILEINFO_MIME_TYPE);
+
+  if ($finfo) {
+    // Get the MIME type of the file
+    $mime_type = finfo_file($finfo, $filePath);
+    
+    // Close the Fileinfo resource
+    finfo_close($finfo);
+
+    return $mime_type;
+  } else {
+    throw new Exception("Failed to open Fileinfo");
+  }
+}

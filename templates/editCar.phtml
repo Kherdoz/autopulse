@@ -1,3 +1,5 @@
+
+
 <div class="max-w-xl mx-auto">
     <!-- Affichage de l'image originalFileName -->
 
@@ -16,6 +18,9 @@
             <div class="mt-2 ml-2 flex flex-col items-center justify-items-center">
                 <label for="newImage" class="block text-sm font-medium text-gray-700 text-center">Nouvelle image de la voiture</label>
                 <input type="file" name="newImage" id="newImage" class="mt-1 p-2 border-gray-300 rounded-md w-full">
+                <?php if (isset($errors['newImage'])) : ?>
+                        <p class="text-red-500"><?= htmlspecialchars($errors['newImage']); ?></p>
+                    <?php endif; ?>
             </div>
 
             <div class="flex flex-wrap -mx-4 mb-4">
@@ -30,7 +35,7 @@
                 <div class="w-1/3 px-4 mb-4">
                     <label for="fuel" class="block text-sm font-medium text-gray-700 mt-2 text-center">Carburant :</label>
                     <p class="text-sm text-gray-500 mt-1 text-center">actuel :</p>
-                    <select id="fuel" name "fuel" class="mt-1 p-2 border border-gray-300 rounded-md w-full text-sm text-gray-500 mt-1 focus:outline-none focus:text-gray-900" required>
+                    <select id="fuel" name="fuel" class="mt-1 p-2 border border-gray-300 rounded-md w-full text-sm text-gray-500 mt-1 focus:outline-none focus:text-gray-900" required>
                         <option value="essence" <?= ($car['fuel'] === 'essence') ? 'selected' : '' ?>>Essence</option>
                         <option value="diesel" <?= ($car['fuel'] === 'diesel') ? 'selected' : '' ?>>Diesel</option>
                         <option value="hybride" <?= ($car['fuel'] === 'hybride') ? 'selected' : '' ?>>Hybride</option>
