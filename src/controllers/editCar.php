@@ -42,37 +42,36 @@ function editCar(int $carId)
             }
             // verifier le type de fichier 
             $filetype = getFileMimeType($_FILES['newImage']['tmp_name']);
-            if(!in_array($filetype, ALLOWED_MIME_TYPES_IMAGE) ){
+            if (!in_array($filetype, ALLOWED_MIME_TYPES_IMAGE)) {
                 $errors["newImage"] = 'le fichier doit etre de type : jpeg, gif, webp, png.';
             }
-
         }
         // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
         //todo
         // Si aucune erreur n'est détectée...
-        
+
         if (empty($errors)) {
             if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
-                
+
                 // Si la taille est valide, supprimer l'ancienne image
                 $originalFileName = $_FILES['newImage']['name'];
-                
+
                 // Construire le chemin de l'ancienne image
                 $oldImagePath = "./images/" . $car['originalFileName'];
                 // Vérifier si le fichier de l'ancienne image existe
-                    if (file_exists($oldImagePath)) {
-                        unlink($oldImagePath); // Supprimer l'ancienne image
-                    }
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath); // Supprimer l'ancienne image
+                }
 
                 // Déplacer la nouvelle image si elle est valide
-            
-                    $tempFilePath = $_FILES['newImage']['tmp_name'];
-                    $extension = pathinfo($_FILES['newImage']['name'], PATHINFO_EXTENSION);
-                    $basename = pathinfo($_FILES['newImage']['name'], PATHINFO_FILENAME);
-                    $basename = slugify($basename);
-                    $originalFileName = $basename .sha1(uniqid(rand(),true)) . '.' . $extension;
-                    // Déplacer le fichier temporaire vers le répertoire des images
-                    move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
+
+                $tempFilePath = $_FILES['newImage']['tmp_name'];
+                $extension = pathinfo($_FILES['newImage']['name'], PATHINFO_EXTENSION);
+                $basename = pathinfo($_FILES['newImage']['name'], PATHINFO_FILENAME);
+                $basename = slugify($basename);
+                $originalFileName = $basename . sha1(uniqid(rand(), true)) . '.' . $extension;
+                // Déplacer le fichier temporaire vers le répertoire des images
+                move_uploaded_file($tempFilePath, "./images/" . $originalFileName);
             }
 
             $carModel = new CarModel();
@@ -97,20 +96,21 @@ function deleteCar(int $carId)
 
     $carModel = new CarModel();
     $car = $carModel->getCarById($carId);
-    
+
     $oldImagePath = "images/" . $car['originalFileName'];
     // Vérifier si le fichier de l'ancienne image existe
     if (file_exists($oldImagePath)) {
         unlink($oldImagePath); // Supprimer l'ancienne image
     }
     $carModel->deleteCar($carId);
-  
+
 
     // Message flash
     addFlash('L\'annonce de véhicule a bien été supprimée');
 
-    // Redirection vers une page de confirmation ou de gestion des annonces
-    header('Location: ' . buildUrl('notice'));
+    echo json_encode([
+        'id' => $carId,
+    ]);
     exit;
 }
 
@@ -119,11 +119,13 @@ if (!isConnected()) {
     exit;
 }
 
+
 $action = "edit";
-if (array_key_exists("deleteCar", $_GET)) {
+if (array_key_exists('operation', $_POST) && $_POST['operation'] == 'deleteCar') {
     $action = "delete";
 }
-$carId = $_GET["editCar"] ?? $_GET["deleteCar"];
+$carId = $_POST["editCar"] ?? $_POST["deleteCar"];
+
 // todo verifier que l'annonce appratient bien au user
 
 switch ($action) {

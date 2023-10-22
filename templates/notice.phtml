@@ -1,14 +1,14 @@
 <?php if ($flashMessage) : ?>
     <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
-    <?= htmlspecialchars($flashMessage); ?>
-</div>
+        <?= htmlspecialchars($flashMessage); ?>
+    </div>
 <?php endif; ?>
 
 <nav class="bgColorNav p-4">
     <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
         <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
             <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
-            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicule</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
             <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
             <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
         </ul>
@@ -16,7 +16,8 @@
 </nav>
 
 <!-- Contenue  -->
-<form action="/editCar" method="GET" enctype="multipart/form-data">
+<!-- buildUrl a mettre sur toute les pages action d'un formulaire -->
+<form action="<?= buildUrl('editCar'); ?>" id="form-car" method="POST" enctype="multipart/form-data">
     <div class=" min-h-screen flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-screen-xl">
             <h2 class="text-2xl font-semibold mb-4">Liste de voitures</h2>
@@ -40,7 +41,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($cars as $car) : ?>
-                                    <tr>
+                                    <tr id="car-<?= $car->id?>">
                                         <td class="p-2">
                                             <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de la voiture" class="w-48 h-auto md:w-64 lg:w-80 mx-auto block">
                                             <!-- Augmentez la largeur de l'image et utilisez "mx-auto block" pour centrer l'image horizontalement -->
@@ -54,8 +55,12 @@
                                         <td class="p-2 space-x-2 text-center">
                                             <!-- Centrez les boutons "Éditer" et "Supprimer" -->
                                             <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 w-32 px-4 mb-2 rounded">Modifier</button>
-                                            <button type="submit" name="deleteCar" value="<?= $car->id ?>" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 w-32 px-4 rounded">Supprimer</button>
+
+                                            <button type="submit" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 w-32 px-4 rounded">Supprimer</button>
+                                            <input type="hidden" name="deleteCar" value="<?= $car->id ?>">
+                            
                                         </td>
+
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -66,3 +71,4 @@
         </div>
     </div>
 </form>
+<script src="<?php echo asset("js/notice.js") ?>"></script>
