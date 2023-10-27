@@ -5,7 +5,9 @@ margin: 0;
 padding: 0;
 font-family: 'Inclusive Sans', sans-serif;
 }
-
+.bgColorPlace{
+  background-color: rgb(250, 240, 202);
+}
 .bgColorNav{
 background-color: rgb(238, 150, 75);
 }
@@ -1360,7 +1362,8 @@ margin-top: 30px;
 display: flex;
 justify-content: center;
 align-items: center;
-font-size: 1.1rem;
+margin: 20px;
+font-size: 1rem;
 border-bottom: solid 5px rgb(238, 150, 75);
 }
 .textPlacA{

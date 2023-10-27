@@ -46,25 +46,18 @@ function editCar(int $carId)
                 $errors["newImage"] = 'le fichier doit etre de type : jpeg, gif, webp, png.';
             }
         }
-        // Validation des données du formulaire (vous pouvez réutiliser votre code de validation existant)
-        //todo
         // Si aucune erreur n'est détectée...
-
         if (empty($errors)) {
             if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
-
                 // Si la taille est valide, supprimer l'ancienne image
                 $originalFileName = $_FILES['newImage']['name'];
-
                 // Construire le chemin de l'ancienne image
                 $oldImagePath = "./images/" . $car['originalFileName'];
                 // Vérifier si le fichier de l'ancienne image existe
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath); // Supprimer l'ancienne image
                 }
-
                 // Déplacer la nouvelle image si elle est valide
-
                 $tempFilePath = $_FILES['newImage']['tmp_name'];
                 $extension = pathinfo($_FILES['newImage']['name'], PATHINFO_EXTENSION);
                 $basename = pathinfo($_FILES['newImage']['name'], PATHINFO_FILENAME);

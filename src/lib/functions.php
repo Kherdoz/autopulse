@@ -120,14 +120,11 @@ function buildUrl(string $routeName, array $params = []): string
     $baseUrl = 'http://localhost:8000/index.php/'; // Remplacez par votre URL de base réelle
     if (isset($routes[$routeName])) {
         $path = $routes[$routeName]['path'];
-
         if (!empty($params)) {
             $path .= '?' . http_build_query($params);
         }
-
         // Concaténez BASE_URL avec le chemin de la ressource en paramètre
         $url = rtrim($baseUrl, '/') . '/' . ltrim($path, '/');
-
         return $url;
     } else {
         throw new Exception("Route introuvable : $routeName", 404);
@@ -137,7 +134,6 @@ function asset(string $resourcePath): string
 {
     // Utilisez la constante BASE_URL pour construire l'URL complet
     $url = rtrim(BASE_URL, '/') . '/' . ltrim($resourcePath, '/');
-
     // Retournez l'URL construite
     return $url;
 };

@@ -54,6 +54,7 @@ function afficherPhoto() {
   }
 }
 
+
 // code principal
 const closeModalsButtons = document.querySelectorAll(".modal-container .close");
 for (const closeModalButton of closeModalsButtons) {

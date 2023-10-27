@@ -1,0 +1,21 @@
+<nav class="bgColorNav p-4">
+    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+            <li class="lg:hidden">
+            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+            <li class="lg:flex-grow  flex justify-center lg:justify-start"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
+<div class="bg-gray-100 p-6">
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
+        <i class="fas fa-user colorsTextNav text-5xl mx-auto mb-4"></i>
+        <h1 class="text-2xl ">
+            <p class="mb-4">Nom : <?= $_SESSION['user']['firstname']; ?></p>
+            <p class="mb-4">Prenom : <?= $_SESSION['user']['lastname']; ?></p>
+            <p class="mb-4">Adresse e-mail : <?php echo $_SESSION['user']['email']; ?></p>
+        </h1>
+    </div>
+</div>

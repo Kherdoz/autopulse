@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
     <script src="<?= asset('js/main.js') ?>" defer></script>
 </head>
@@ -45,7 +46,7 @@
                                     <a href="<?= buildUrl('logout'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" onclick="ouvrirModal()">Déconnexion</a>
                                 </li>
                                 <li>
-                                <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" data-target="profil">Profils</a>
+                                <a href=" <?= buildUrl('profils'); ?>" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" data-target="profil">Profils</a>
                                 </li>   
                             </ul>
                         </details>
@@ -97,7 +98,7 @@
             <div class="footerLien2">
                 <a href="/">Nous rejoindres</a>
                 <a href="/">Devenir inspecteur</a>
-                <a href="/">F.A.Q</a>
+                <a href="<?= buildUrl('faq'); ?>">F.A.Q</a>
             </div>
         </div>
         </div>

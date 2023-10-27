@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($fuel)) {
         $errors['fuel'] = 'Le champ "carburant" est obligatoire';
-    }
+    } 
     if (empty($mileage)) {
         $errors['mileage'] = 'Le champ "kilometrage" est obligatoire';
     }
@@ -56,7 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_numeric($mileage) || $mileage <= 0) {
         $errors['mileage'] = 'Le champ "kilométrage" doit être un nombre positif';
     }
+
     $originalFileName = "";
+
     if (isset($_FILES['originalFileName']) && $_FILES['originalFileName']['error'] === UPLOAD_ERR_OK) {
         $originalFileName = $_FILES['originalFileName']['name'];
         // Obtenir la taille du fichier

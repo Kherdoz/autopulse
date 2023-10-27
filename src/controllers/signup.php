@@ -12,6 +12,8 @@ $errors = []; // Tableau qui contiendra les erreurs
 $firstname = '';
 $lastname = '';
 $email = '';
+$password = '';
+$passwordConfirm = '';
 
 // Si le formulaire est soumis...
 if (!empty($_POST)) {

@@ -41,4 +41,5 @@ class UserModel extends AbstractModel {
         $pdoStatement = self::$pdo->prepare($sql);
         $pdoStatement->execute([$firstname, $lastname, $email, $passwordHash]);
     }
+    
 }

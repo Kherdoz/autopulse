@@ -54,6 +54,16 @@ $routes = [
         'path' => '/announcement',
         'controller' => 'announcement.php'
     ],
+
+    'profils' => [
+        'path' => '/profils',
+        'controller' => 'profils.php'
+    ],
+
+    'faq' => [
+        'path' => '/faq',
+        'controller' => 'faq.php'
+    ],
 ];
 
 return $routes;

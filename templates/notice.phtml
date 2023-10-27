@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($cars as $car) : ?>
-                                    <tr id="car-<?= $car->id?>">
+                                    <tr id="car-<?= $car->id ?> ">
                                         <td class="p-2">
                                             <img src="<?= asset('images/' . $car->originalFileName) ?>" alt="Image de la voiture" class="w-48 h-auto md:w-64 lg:w-80 mx-auto block">
                                             <!-- Augmentez la largeur de l'image et utilisez "mx-auto block" pour centrer l'image horizontalement -->
@@ -54,11 +54,13 @@
                                         <td class="p-2"><?= htmlspecialchars($car->accounte) ?></td>
                                         <td class="p-2 space-x-2 text-center">
                                             <!-- Centrez les boutons "Éditer" et "Supprimer" -->
+                                            <!-- Centrez les boutons "Éditer" et "Supprimer" -->
                                             <button type="submit" name="editCar" value="<?= $car->id ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 w-32 px-4 mb-2 rounded">Modifier</button>
 
-                                            <button type="submit" class="bg-red-500 hover.bg-red-700 text-white font-semibold py-2 w-32 px-4 rounded">Supprimer</button>
-                                            <input type="hidden" name="deleteCar" value="<?= $car->id ?>">
-                            
+                                            <button type="submit" name="deleteCar" data-car-id="<?= $car->id ?>" class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 w-32 px-4 rounded">Supprimer</button>
+                                            <input type="hidden" name="carId" value="<?= $car->id ?>">
+
+
                                         </td>
 
                                     </tr>

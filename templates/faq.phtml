@@ -1,0 +1,103 @@
+<?php if (isConnected()) : ?>
+<nav class="bgColorNav p-4">
+    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+            <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+            <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+            <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
+<?php endif; ?>
+<div class="bg-gray-100 p-6">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-4">FAQ</h1>
+        <div class="space-y-4">
+            <!-- Question/Réponse 1 -->
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question1" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700">Quel est le but de ce site ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Notre site vise à faciliter la vente de véhicules d'occasion entre particuliers. Nous offrons également la possibilité de payer des partenaires agréés pour effectuer une vérification du véhicule lorsque l'acheteur souhaite procéder à l'achat.</p>
+                </div>
+            </div>
+
+            <!-- Question/Réponse 2 -->
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Que doit faire un vendeur pour publier une annonce ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Lorsqu'un vendeur souhaite publier une annonce, il doit fournir des photos obligatoires du véhicule, y compris des photos de l'intérieur et de l'extérieur. De plus, une section dédiée aux rayures ou aux impacts sur la carrosserie doit être complétée. Le vendeur doit également fournir le contrôle technique et la carte grise, mais ces informations ne sont visibles que par l'administrateur du site.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Comment sont vérifiés les documents du vendeur ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Lorsqu'un vendeur souhaite publier une annonce, il doit fournir des photos obligatoires du véhicule, y compris des photos de l'intérieur et de l'extérieur. De plus, une section dédiée aux rayures ou aux impacts sur la carrosserie doit être complétée. Le vendeur doit également fournir le contrôle technique et la carte grise, mais ces informations ne sont visibles que par l'administrateur du site.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700">  Quels sont les niveaux de validation de l'administrateur ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">L'administrateur dispose de deux niveaux de validation : un pour les vendeurs et un pour les spécialistes proposant des services payants.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700">  Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Si le rapport du spécialiste n'est pas conforme à ce que le vendeur a soumis, l'administrateur a le droit de modifier l'annonce pour la rendre conforme.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700">  Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Si le rapport du spécialiste n'est pas conforme à ce que le vendeur a soumis, l'administrateur a le droit de modifier l'annonce pour la rendre conforme.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Comment les acheteurs peuvent-ils évaluer les vendeurs ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Les vendeurs reçoivent des évaluations sous forme d'étoiles de la part des acheteurs, ce qui permet de rassurer les futurs acheteurs.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Que se passe-t-il en cas de vente réussie ou de fraude ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Le site inclut une fonction de suppression des annonces en cas de vente réussie ou si le site détecte une fraude.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Comment les acheteurs peuvent-ils contacter les vendeurs ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Les acheteurs peuvent recevoir des notifications sur les biens qu'ils ont préférés et ont la possibilité d'engager une conversation avec le vendeur.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
+                    <span class="text-lg font-medium text-gray-700"> Quels services payants sont proposés aux acheteurs ?</span>
+                </label>
+                <div class="mt-2">
+                    <p class="text-gray-600">Les acheteurs peuvent solliciter un spécialiste agréé, comme un mécanicien, pour tester le véhicule. Un contrôle technique peut également être effectué si nécessaire. Ces spécialistes font ensuite un retour à l'administrateur du site.</p>
+                </div>
+            </div>
+            <h2>N'hésitez pas à nous contacter si vous avez d'autres questions ou besoin d'informations supplémentaires. Nous sommes là pour vous aider !</h2>
+
+        </div>
+    </div>
