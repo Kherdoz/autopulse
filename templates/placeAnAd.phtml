@@ -4,21 +4,19 @@
     </div>
 <?php endif; ?>
 
-<!-- Assurez-vous d'inclure le lien vers la bibliothèque Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-<!-- Utilisez la classe d'icône de Font Awesome pour l'enveloppe -->
+
 <nav class="bgColorNav p-4">
-    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
-        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
-            <li class="lg:hidden">
-            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
-            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
-            <li class="lg:flex-grow flex justify-center"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
-            <li class="lg:flex-grow  flex justify-center lg:justify-start"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
-        </ul>
-    </div>
-</nav>
+        <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+            <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+                <li class="lg:hidden"></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('message'); ?> " class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </nav>
 
 
 
@@ -50,8 +48,7 @@
                 <div class="flex flex-wrap -mx-2">
                     <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                         <label for="originalFileName" class="  block text-center font-semibold">Photo :</label>
-                        <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" data-error-message="Le champ Photo est requis." data-success-message="Le champ Photo est valide."
-                        class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2">
+                        <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" data-error-message="Le champ Photo est requis." data-success-message="Le champ Photo est valide." class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2">
                         <?php if (isset($errors['originalFileName'])) : ?>
                             <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['originalFileName']); ?></p>
@@ -60,8 +57,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                         <label for="fuel" class="block text-center font-semibold">Carburant :</label>
-                        <select id="fuel" name="fuel" data-error-message="Le champ Carburant est requis." data-success-message="Le champ Carburant est valide."
-                        class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2">
+                        <select id="fuel" name="fuel" data-error-message="Le champ Carburant est requis." data-success-message="Le champ Carburant est valide." class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2">
                             <option value="">Sélectionnez le carburant</option>
                             <option value="essence">Essence</option>
                             <option value="diesel">Diesel</option>
@@ -113,7 +109,7 @@
                 </div>
                 <div class="text-center">
                     <label for="accounte" class="block font-semibold">Description :</label>
-                    <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-full bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" data-error-message="Le champ Description est requis." data-success-message="Le champ Description est valide."  placeholder="Entrez la description"></textarea>
+                    <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-full bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" data-error-message="Le champ Description est requis." data-success-message="Le champ Description est valide." placeholder="Entrez la description"></textarea>
                     <?php if (isset($errors['accounte'])) : ?>
                         <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                             <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['accounte']); ?></p>

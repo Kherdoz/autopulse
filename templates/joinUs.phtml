@@ -1,0 +1,40 @@
+<?php if (isConnected()) : ?>
+    <nav class="bgColorNav p-4">
+        <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+            <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+                <li class="lg:hidden"></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('message'); ?> " class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+<?php endif; ?>
+<div class="bg-gray-100">
+    <div class=" text-white p-4">
+        <h1 class="text-3xl font-bold">AutoPulse - Rejoignez notre équipe</h1>
+    </div>
+
+    <div class="container mx-auto p-4">
+        <section class="my-6">
+            <h2 class="text-2xl font-bold">Formulaire de candidature</h2>
+            <p class="text-justify">
+                Vous êtes intéressé à rejoindre l'équipe d'AutoPulse ? Remplissez le formulaire ci-dessous pour soumettre votre candidature. Nous sommes toujours à la recherche de talents enthousiastes pour contribuer à notre mission de faciliter la vente de véhicules d'occasion entre particuliers.
+            </p>
+
+            <form action="votre_script_de_traitement.php" method="post" class="bg-white p-6 rounded-lg shadow-md my-4">
+                <label for="nom" class="block text-gray-700 font-bold">Nom :</label>
+                <input type="text" id="nom" name="nom" required class="w-full p-2 border rounded-lg mb-4">
+
+                <label for="email" class="block text-gray-700 font-bold">Adresse e-mail :</label>
+                <input type="email" id="email" name="email" required class="w-full p-2 border rounded-lg mb-4">
+
+                <label for="message" class="block text-gray-700 font-bold">Message de candidature :</label>
+                <textarea id="message" name="message" required class="w-full p-2 border rounded-lg mb-4" rows="4"></textarea>
+
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg">Envoyer ma candidature</button>
+            </form>
+        </section>
+    </div>
+</div>

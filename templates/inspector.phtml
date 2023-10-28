@@ -1,0 +1,56 @@
+<?php if (isConnected()) : ?>
+    <nav class="bgColorNav p-4">
+        <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+            <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+                <li class="lg:hidden"></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('message'); ?> " class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+<?php endif; ?>
+<div class="bg-gray-100">
+    <div class=" text-white p-4">
+        <h1 class="text-3xl font-bold">AutoPulse - Rejoignez notre équipe</h1>
+    </div>
+
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Inscription pour devenir inspecteur d'AutoPulse</h1>
+
+        <p class="mb-6 text-gray-700 text-justify"">
+                    Bienvenue chez AutoPulse ! Nous recherchons des individus passionnés et qualifiés pour rejoindre notre équipe d'inspecteurs. En tant qu'inspecteur d'AutoPulse, vous aurez l'opportunité de jouer un rôle clé dans l'assurance de la qualité et la sécurité de nos produits. Votre expertise et votre dévouement contribueront à maintenir nos normes élevées et à garantir la satisfaction de nos clients.
+                </p>
+                <form action=" votre_script_de_traitement.php" method="post" class="bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <label for="nom" class="block text-gray-700 font-bold">Nom :</label>
+            <input type="text" id="nom" name="nom" required class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mb-4">
+            <label for="prenom" class="block text-gray-700 font-bold">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold">Adresse e-mail :</label>
+            <input type="email" id="email" name="email" required class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mb-4">
+            <label for="motdepasse" class="block text-gray-700 font-bold">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" required class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mb-4">
+            <label for="confirmmotdepasse" class="block text-gray-700 font-bold">Confirmez le mot de passe :</label>
+            <input type="password" id="confirmmotdepasse" name="confirmmotdepasse" required class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mt-6">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg">S'inscrire</button>
+        </div>
+        </form>
+    </div>
+</div>

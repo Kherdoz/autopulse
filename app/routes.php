@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * On définit dans le tableau associatif $routes la liste de nos routes.
@@ -63,6 +63,21 @@ $routes = [
     'faq' => [
         'path' => '/faq',
         'controller' => 'faq.php'
+    ],
+
+    'message' => [
+        'path' => '/message',
+        'controller' => 'message.php'
+    ],
+
+    'inspector' => [
+        'path' => '/inspector',
+        'controller' => 'inspector.php'
+    ],
+
+    'joinUs' => [
+        'path' => '/joinUs',
+        'controller' => 'joinUs.php'
     ],
 ];
 

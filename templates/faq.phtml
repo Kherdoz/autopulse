@@ -1,14 +1,15 @@
 <?php if (isConnected()) : ?>
-<nav class="bgColorNav p-4">
-    <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
-        <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
-            <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
-            <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
-            <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
-            <li class="lg:flex-grow"><a href="/" class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
-        </ul>
-    </div>
-</nav>
+    <nav class="bgColorNav p-4">
+        <div class="container mx-auto lg:w-3/4 flex flex-col lg:flex-row justify-between items-center">
+            <ul class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 space-x-4 lg:space-around">
+                <li class="lg:hidden"></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('notice'); ?>" class="colorsTextNav">Mes annonces</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('announcement'); ?>" class="colorsTextNav">Marché du véhicules</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('placeAnAd'); ?>" class="colorsTextNav">Déposer une annonce</a></li>
+                <li class="lg:flex-grow"><a href="<?= buildUrl('message'); ?> " class="colorsTextNav"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </nav>
 <?php endif; ?>
 <div class="bg-gray-100 p-6">
     <div class="max-w-3xl mx-auto">
@@ -43,7 +44,7 @@
             </div>
             <div class="bg-white p-4 rounded shadow-md">
                 <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
-                    <span class="text-lg font-medium text-gray-700">  Quels sont les niveaux de validation de l'administrateur ?</span>
+                    <span class="text-lg font-medium text-gray-700"> Quels sont les niveaux de validation de l'administrateur ?</span>
                 </label>
                 <div class="mt-2">
                     <p class="text-gray-600">L'administrateur dispose de deux niveaux de validation : un pour les vendeurs et un pour les spécialistes proposant des services payants.</p>
@@ -51,7 +52,7 @@
             </div>
             <div class="bg-white p-4 rounded shadow-md">
                 <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
-                    <span class="text-lg font-medium text-gray-700">  Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
+                    <span class="text-lg font-medium text-gray-700"> Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
                 </label>
                 <div class="mt-2">
                     <p class="text-gray-600">Si le rapport du spécialiste n'est pas conforme à ce que le vendeur a soumis, l'administrateur a le droit de modifier l'annonce pour la rendre conforme.</p>
@@ -59,7 +60,7 @@
             </div>
             <div class="bg-white p-4 rounded shadow-md">
                 <label for="question2" class="flex items-center justify-between w-full py-2 cursor-pointer">
-                    <span class="text-lg font-medium text-gray-700">  Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
+                    <span class="text-lg font-medium text-gray-700"> Que se passe-t-il en cas de modification de l'annonce par l'administrateur ?</span>
                 </label>
                 <div class="mt-2">
                     <p class="text-gray-600">Si le rapport du spécialiste n'est pas conforme à ce que le vendeur a soumis, l'administrateur a le droit de modifier l'annonce pour la rendre conforme.</p>
@@ -101,3 +102,4 @@
 
         </div>
     </div>
+</div>

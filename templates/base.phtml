@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet " href="<?= asset('css/styles.css') ?>">
     <script src="<?= asset('js/main.js') ?>" defer></script>
@@ -96,17 +97,17 @@
                 <h4>A PROPOS</h4>
             </div>
             <div class="footerLien2">
-                <a href="/">Nous rejoindres</a>
-                <a href="/">Devenir inspecteur</a>
+                <a href="<?= buildUrl('joinUs'); ?>">Nous rejoindres</a>
+                <a href="<?= buildUrl('inspector'); ?>">Devenir inspecteur</a>
                 <a href="<?= buildUrl('faq'); ?>">F.A.Q</a>
             </div>
         </div>
         </div>
         <div class="footerBotton">
             <div class="footerIcons">
-                <!-- <a href="/" class="logoFooter">
+                <a href="/" class="logoFooter">
                     <img src="<?= asset('./img/facebook.png') ?>" width="50px" height="50px" alt="logo">
-                </a> -->
+                </a>
                 <a href="/" class="logoFooter">
                     <img src="<?= asset('./img/instagram.png') ?>" width="50px" height="50px" alt="logo">
                 </a>
