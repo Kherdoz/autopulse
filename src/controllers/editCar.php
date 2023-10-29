@@ -2,11 +2,14 @@
 
 use App\Model\CarModel;
 
+if (!isConnected()) {
+    header('Location: ' . buildUrl('login'));
+    exit;
+}
 
 // function edition
 function editCar(int $carId)
 {
-
     // tableau d'erreur
     $errors = [];
 
@@ -15,7 +18,7 @@ function editCar(int $carId)
     $car = $carModel->getCarById($carId);
 
     // Si le formulaire est soumis...
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && array_key_exists('make', $_POST)) {
 
         $make = trim($_POST['make']);
         $accounte = trim($_POST['accounte']);
@@ -107,17 +110,11 @@ function deleteCar(int $carId)
     exit;
 }
 
-if (!isConnected()) {
-    header('Location: ' . buildUrl('login'));
-    exit;
-}
-
-
 $action = "edit";
 if (array_key_exists('operation', $_POST) && $_POST['operation'] == 'deleteCar') {
     $action = "delete";
 }
-$carId = $_POST["editCar"] ?? $_POST["deleteCar"];
+$carId = $_POST["editCar"] ?? $_POST["carId"];
 
 // todo verifier que l'annonce appratient bien au user
 

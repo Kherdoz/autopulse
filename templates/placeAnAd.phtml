@@ -50,7 +50,7 @@
                         <label for="originalFileName" class="  block text-center font-semibold">Photo :</label>
                         <input type="file" id="originalFileName" name="originalFileName" accept="image/*" onchange="afficherPhoto()" data-error-message="Le champ Photo est requis." data-success-message="Le champ Photo est valide." class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2">
                         <?php if (isset($errors['originalFileName'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert" data-error="originalFileName" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['originalFileName']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -65,7 +65,7 @@
                             <option value="electrique">Électrique</option>
                         </select>
                         <?php if (isset($errors['fuel'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert"data-error="fuel" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['fuel']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -74,7 +74,7 @@
                         <label for="price" class="block text-center font-semibold">Prix :</label>
                         <input type="number" class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" id="price" name="price" data-error-message="Le champ Prix est requis." data-success-message="Le champ Prix est valide." placeholder="Entrez le prix">
                         <?php if (isset($errors['price'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert" data-error="price"class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['price']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -83,7 +83,7 @@
                         <label for="make" class="block text-center font-semibold">Marque :</label>
                         <input type="text" class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" id="make" name="make" data-error-message="Le champ Marque est requis." data-success-message="Le champ Marque est valide." placeholder="Entrez la marque">
                         <?php if (isset($errors['make'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert" data-error="make"class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['make']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -92,7 +92,7 @@
                         <label for="years" class="block text-center font-semibold">Année :</label>
                         <input type="number" class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" id="years" name="years" min="1990" max="2100" data-error-message="Le champ Année est requis." data-success-message="Le champ Année est valide." placeholder="Entrez l'Année">
                         <?php if (isset($errors['years'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert" data-error="years" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['years']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -101,7 +101,7 @@
                         <label for="mileage" class="block text-center font-semibold">Kilométrage :</label>
                         <input type="number" class="w-full h-12 mb-2 bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" id="mileage" name="mileage" data-error-message="Le champ Kilométre est requis." data-success-message="Le champ Kilométre est valide." placeholder="Entrez le kilométrage">
                         <?php if (isset($errors['mileage'])) : ?>
-                            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                            <div role="alert" data-error="mileage" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                                 <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['mileage']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -111,7 +111,7 @@
                     <label for="accounte" class="block font-semibold">Description :</label>
                     <textarea id="accounte" name="accounte" rows="5" cols="25" class="w-full bg-opacity-70 placeholder-gray-500 bg-gray-100 rounded-md p-2" data-error-message="Le champ Description est requis." data-success-message="Le champ Description est valide." placeholder="Entrez la description"></textarea>
                     <?php if (isset($errors['accounte'])) : ?>
-                        <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
+                        <div role="alert" data-error="accounte" class="rounded border-s-4 border-red-500 bg-red-50 p-4 mb-4">
                             <p class="mt-2 text-sm text-red-700"><?= htmlspecialchars($errors['accounte']); ?></p>
                         </div>
                     <?php endif; ?>

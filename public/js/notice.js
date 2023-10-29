@@ -1,9 +1,8 @@
 function onSubmitForm(event) {
-  event.preventDefault();
-  const url = form.action;
-  const data = new FormData(form);
-
   if (event.submitter.name === "deleteCar") {
+    event.preventDefault();
+    const url = form.action;
+    const data = new FormData(form);
     // Demander la confirmation
     const confirmation = window.confirm(
       "Voulez-vous vraiment supprimer cette annonce ?"
@@ -14,20 +13,16 @@ function onSubmitForm(event) {
         method: "POST",
         body: data,
       };
+      console.log(form.carId);
       fetch(url, options)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-          if (data.operation === "deleteCar") {
-            document.getElementById("car-" + data.id).remove();
-          }
+          console.log(data.id);
+          document.getElementById("car-" + data.id).remove();
         });
     }
-  } else if (event.submitter.name === "editCar") {
-    // Rediriger vers la page de modification
-    const carId = event.submitter.value;
-    window.location.href = "editCar?id=" + carId; // Remplacez "modifier.php" par l'URL de votre page de modification
   }
 }
 
