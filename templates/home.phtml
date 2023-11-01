@@ -1,89 +1,93 @@
 <!-- Affichage du message flash le cas échéant -->
 <?php if ($flashMessage) : ?>
     <div class="fixed bottom-0 right-0 m-4 bg-green-500 text-white text-center py-3 px-4 rounded shadow-md flash-message">
-    <?= htmlspecialchars($flashMessage); ?>
-</div>
+        <?= htmlspecialchars($flashMessage); ?>
+    </div>
 <?php endif; ?>
 
 <h1 class="text-3xl mt-6">La voiture parfaite, à portée de main, entre particuliers.</h1>
-    <div class="cch">
-        <div class="container-carrousel">
-            <div>
-                <div class="content">
-                    <h2>Réflexion</h2>
-                    <span class="textCarrousel">Cherchez-vous un véhicule ?</span>
-                </div>
+<div class="globalContainerCarrousel">
+    <div class="container-carrousel">
+        <div>
+            <div class="content">
+                <h2>Réflexion</h2>
+                <span class="textCarrousel">Cherchez-vous un véhicule ?</span>
             </div>
-            <div>
-                <div class="content">
-                    <h2>Discussion.</h2>
-                    <span class="textCarrousel">Discuté avec de nombreux vendeurs et vendeuses</span>
-                </div>
+        </div>
+        <div>
+            <div class="content">
+                <h2>Discussion</h2>
+                <span class="textCarrousel">Discuté avec de nombreux vendeurs et vendeuses</span>
             </div>
-            <div>
-                <div class="content">
-                    <h2>Fiabilité</h2>
-                    <span class="textCarrousel">Contactez nos inspecteurs pour assurer la fiabilité</span>
-                </div>
+        </div>
+        <div>
+            <div class="content">
+                <h2>Fiabilité</h2>
+                <span class="textCarrousel">Contactez nos inspecteurs pour assurer la fiabilité</span>
             </div>
-            <div>
-                <div class="content">
-                    <h2>Finalisé</h2>
-                    <span class="textCarrousel">Repartez avec votre véhicule</span>
-                </div>
+        </div>
+        <div>
+            <div class="content">
+                <h2>Finalisé</h2>
+                <span class="textCarrousel">Repartez avec votre véhicule</span>
             </div>
         </div>
     </div>
-    <section class="containerBase">
-        <p class="bannerBase1">
-            Les bonnes raisons de choisir Auto<strong><span class="pulse">Pulse</span></strong>
-        </p>
-        <div class="containerBaseBanner">
-            <div class="bannerBase2">
-                <p>Confiance et Sécurité Assurées </p>
-                <!-- <br> -->
-                <img src="/img/lock_2913133.png" alt="Icône " class="svg" width="110" height="110">
-                <p class="box1">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
-                    par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
-            </div>
-            <div class="bannerBase2">
-                <p>Facilité de Communication </p>
-                <!-- <br> -->
-                <img src="/img/speak.png" alt="Icône" class="svg" width="110" height="110">
-                <p class="box1">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
-                    entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
-            </div>
-            <div class="bannerBase2">
-                <p>Évaluation Transparente</p>
-                <!-- <br> -->
-                <img src="/img/rating.png" alt="Icône" class="svg" width="110" height="110">
-                <p class="box1">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
-                    renforçant ainsi la confiance dans chaque transaction.</p>
-            </div>
+</div>
+<section class="containerBase">
+    <p class="bannerBase1">
+        Les bonnes raisons de choisir Auto<strong><span class="pulse">Pulse</span></strong>
+    </p>
+    <div class="containerBaseBanner">
+        <div class="bannerBase2">
+            <p>Confiance et Sécurité Assurées </p>
+            <!-- <br> -->
+            <img src="/img/lock_2913133.png" alt="Icône " class="svg" >
+            <p class="texteMenu">Notre plateforme garantit la qualité et la sécurité de chaque transaction grâce à une vérification minutieuse des véhicules
+                par des spécialistes agréés, offrant ainsi une tranquillité d'esprit aux acheteurs et vendeurs.</p>
         </div>
-    </section>
-    <section class="containerButton">
-        
-            <h2>"Découvrez la voiture de vos rêves, disponible dès aujourd'hui entre particuliers. Faites le premier pas vers une nouvelle aventure sur quatre roues !"</h2>
-       
-        <?php if (isConnected()) : ?>
-            <div class="btn1">
+        <div class="bannerBase2">
+            <p>Facilité de Communication </p>
+            <!-- <br> -->
+            <img src="/img/speak.png" alt="Icône" class="svg" >
+            <p class="texteMenu">En choisissant notre site, vous bénéficiez d'une interface conviviale et d'un système de messagerie intégré pour une communication transparente
+                entre acheteurs et vendeurs, simplifiant ainsi le processus d'achat ou de vente.</p>
+        </div>
+        <div class="bannerBase2">
+            <p>Évaluation Transparente</p>
+            <!-- <br> -->
+            <img src="/img/rating.png" alt="Icône" class="svg" >
+            <p class="texteMenu">Nous offrons une évaluation transparente des vendeurs par les acheteurs, vous permettant de prendre des décisions éclairées basées sur la réputation des vendeurs,
+                renforçant ainsi la confiance dans chaque transaction.</p>
+        </div>
+    </div>
+</section>
+<section class="containerButton">
+
+    <h2 class="size">"Découvrez la voiture de vos rêves, disponible dès aujourd'hui entre particuliers. Faites le premier pas vers une nouvelle aventure sur quatre roues !"</h2>
+
+    <?php if (isConnected()) : ?>
+        <div class="globalContainer">
+            <div class="btnAction">
                 <button class="button-28" onclick="window.location.href='<?= buildUrl('announcement'); ?>'">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend. Explorez notre marché automobile dès aujourd'hui</p>
             </div>
-            <div class="btn1">
+            <div class="btnAction">
                 <button class="button-28" onclick="window.location.href='<?= buildUrl('placeAnAd'); ?>'">VENDRE</button>
                 <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
             </div>
-        <?php else : ?>
-            <div class="btn1">
+        </div>
+    <?php else : ?>
+        <div class="globalContainer">
+            <div class="btnAction">
                 <button class="button-28" onclick="window.location.href='<?= buildUrl('signup'); ?>'">ACHETER</button>
                 <p class="textb">La voiture parfaite vous attend.
                     Explorez notre marché automobile dès aujourd'hui</p>
             </div>
-            <div class="btn1">
+            <div class="btnAction">
                 <button class="button-28" onclick="window.location.href='<?= buildUrl('signup'); ?>'">VENDRE</button>
                 <p class="textb">Transformez votre voiture en argent comptant avec notre plateforme de vente conviviale.</p>
             </div>
-        <?php endif; ?>
-    </section>
+        </div>
+    <?php endif; ?>
+</section>

@@ -25,6 +25,5 @@ function onSubmitForm(event) {
     }
   }
 }
-
 const form = document.getElementById("form-car");
 form.addEventListener("submit", onSubmitForm);

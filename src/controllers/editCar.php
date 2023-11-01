@@ -89,7 +89,6 @@ function editCar(int $carId)
 //function delete
 function deleteCar(int $carId)
 {
-
     $carModel = new CarModel();
     $car = $carModel->getCarById($carId);
 
@@ -99,7 +98,6 @@ function deleteCar(int $carId)
         unlink($oldImagePath); // Supprimer l'ancienne image
     }
     $carModel->deleteCar($carId);
-
 
     // Message flash
     addFlash('L\'annonce de véhicule a bien été supprimée');

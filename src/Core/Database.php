@@ -8,7 +8,6 @@ use PDO;
 use PDOException;
 
 class Database {
-    // Ici je suis à l'intérieur de ma classe
     /**
      * Crée une connexion à la base de données avec PDO
      * @return PDO l'objet PDO créé
