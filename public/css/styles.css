@@ -15,6 +15,7 @@ background-color: rgb(238, 150, 75);
   color: rgb(13, 59, 102);
 }
 .size{
+  text-align: center;
   font-size: 1.5rem;
 }  
 h4{
@@ -25,7 +26,10 @@ h4{
   text-align: center;
   background-color: rgb(13, 59, 102);
 }
-
+.texteMenu{
+  margin: 10px;
+  text-align: justify;
+}
 /* Point de rupture pour les mobiles  */
 @media screen and (max-width: 360px) {
   /* Header */
@@ -209,6 +213,7 @@ h1 {
   height: 50px;
 }
 .texteMenu{
+  padding: 30px;
   font-size: 12px;
   margin-top: 10px;
 }
@@ -261,7 +266,9 @@ h2 {
   width: 60%;
   will-change: transform;
 }
-.textb {
+.textButtonContainer {
+  text-align: justify;
+  margin: 10px;
   color: rgb(13, 59, 102);
   margin-top: 18px;
   font-size: 1rem;
@@ -293,14 +300,15 @@ footer{
   color: white;
   }
   .footerLien{
-    display: flex;
+display: flex;
     width: 360px;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 5px;
     padding-top: 30px;
-    align-items: center;
+    align-content: center;
+    align-items: flex-start;
     }
     .globalLogoFooter{
       display: flex;
@@ -329,7 +337,8 @@ footer{
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    align-content: center;
   }
 
 /* menu  */
@@ -607,7 +616,9 @@ h2 {
   width: 60%;
   will-change: transform;
 }
-.textb {
+.textButtonContainer{
+  text-align: justify;
+  margin: 10px;
   color: rgb(13, 59, 102);
   margin-top: 18px;
   font-size: 1rem;
@@ -629,6 +640,7 @@ footer{
     min-height: 150px;
     padding-bottom: 20px;
     justify-content: center;
+    flex-direction: column;
   }
   .footerBase{
   display: flex;
@@ -640,13 +652,14 @@ footer{
   }
   .footerLien{
     display: flex;
-    width: 500px;
+    /* width: 500px; */
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 5px;
     padding-top: 30px;
-    align-items: center;
+    align-items: flex-start;
+}
     }
     .globalLogoFooter{
       display: flex;
@@ -670,12 +683,12 @@ footer{
   .footerLien2{
     padding-top: 38px;
     display: flex;
-    width: 500px;
+    /* width: 500px; */
     color: white;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
   }
 
 /* menu  */
@@ -713,7 +726,8 @@ footer{
 .pulse{
   color: #F29559;
   }
-}
+
+
 
 /* Point de rupture pour les tablettes  */
 @media (min-width: 837px) and (max-width: 1240px) {
@@ -839,7 +853,9 @@ footer{
         justify-content: space-evenly;
         align-items: flex-start;
         }
-        .textb {
+        .textButtonContainer{
+          text-align: justify;
+          margin: 10px;
           color: rgb(13, 59, 102);
           margin-top: 14px;
           /* font-size: 1.3rem; */
@@ -898,12 +914,13 @@ footer{
     .containerFooter{
       display: flex;
       max-width: 1280px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       margin-top: auto;
       background-color: rgb(13, 59, 102);
       min-height: 150px;
       padding-bottom: 20px;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: center;
     }
     .footerBase{
     display: flex;
@@ -946,7 +963,7 @@ footer{
     .footerLien2{
     padding-top: 38px;
     display: flex;
-    width: 500px;
+    /* width: 500px; */
     color: white;
     flex-direction: column;
     flex-wrap: wrap;
@@ -956,7 +973,7 @@ footer{
 }
 
 /* Point de rupture pour les ordinateurs de bureau (à partir de 1224px) */
-@media (min-width: 1240px)  {
+@media (min-width: 1241px)  {
   h1 {
     margin: 20px;
     text-align: center;
@@ -993,7 +1010,7 @@ footer{
   font-weight: 400;
   min-height: 50vh;
   }
-  .container-carrousel {
+.container-carrousel {
     margin-top: 55px;
     width: 100%;
     display: flex;
@@ -1067,7 +1084,7 @@ footer{
           }
         }
     } 
-    .containerBase{
+.containerBase{
       margin-top: 100px;
       display: flex;
       height: 400px;
@@ -1078,7 +1095,7 @@ footer{
       align-content: stretch;
       justify-content: space-evenly;
       }
-      .containerBaseBanner{
+.containerBaseBanner{
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
@@ -1207,7 +1224,9 @@ h2{
 color: rgb(13, 59, 102);  
 }
 
-.textb{
+.textButtonContainer{
+text-align: justify;
+margin: 10px;
 color: rgb(13, 59, 102);  
 margin-top: 30px;
 font-size: 1.3rem; 
@@ -1258,10 +1277,10 @@ white-space: nowrap;
  .button-28 {
     appearance: none;
     background-color: transparent;
-    border: 3px solid #202C39;
+    border: 3px solid rgb(238, 150, 75);
     border-radius: 15px;
     box-sizing: border-box;
-    color: #202C39;
+    color: rgb(238, 150, 75);
     cursor: pointer;
     display: inline-block;
     font-size: 16px;
